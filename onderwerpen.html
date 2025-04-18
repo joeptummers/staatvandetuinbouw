@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
-    <base href="/staatvandetuinbouw/">
     <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
     <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:image" content="images/og-image.png">
+    <meta name="og:image" content="https://www.example.org/tuinbouw/images/og-image.png">
     <meta property="og:title" content="Onderwerpen">
     <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/">
     <title>Onderwerpen - Staat van de Tuinbouw</title>
@@ -316,7 +315,7 @@
       <main>
         <section class="container">
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
             <li class="breadcrumb-item">Onderwerpen</li>
           </ul>
           
@@ -385,21 +384,18 @@
     </div>
 
     <script>
-      // Function to load HTML content
-      function loadHTML(elementId, filePath) {
-        fetch(filePath)
+      // Load header and footer
+      fetch('header.html')
           .then(response => response.text())
           .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-          })
-          .catch(error => console.error('Error loading HTML:', error));
-      }
+              document.getElementById('header-placeholder').innerHTML = data;
+          });
 
-      // Load header and footer
-      document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', 'header.html');
-        loadHTML('footer-placeholder', 'footer.html');
-      });
+      fetch('footer.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+          });
 
       // Mobile menu toggle
       document.addEventListener('DOMContentLoaded', function() {

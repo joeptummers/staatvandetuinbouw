@@ -481,21 +481,18 @@
     </div>
 
     <script>
-      // Function to load HTML content
-      function loadHTML(elementId, filePath) {
-        fetch(filePath)
+      // Load header and footer
+      fetch('../header.html')
           .then(response => response.text())
           .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-          })
-          .catch(error => console.error('Error loading HTML:', error));
-      }
+              document.getElementById('header-placeholder').innerHTML = data;
+          });
 
-      // Load header and footer
-      document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', '../header.html');
-        loadHTML('footer-placeholder', '../footer.html');
-      });
+      fetch('../footer.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+          });
 
       // Mobile menu toggle
       document.addEventListener('DOMContentLoaded', function() {
