@@ -2,6 +2,7 @@
 <html lang="nl">
   <head>
     <meta charset="utf-8">
+    <base href="/staatvandetuinbouw/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
     <meta name="description" content="Overzicht van tuinbouwsectoren in Nederland">
@@ -348,7 +349,7 @@
                 <!-- Glastuinbouw algemeen -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/glastuinbouw.png" alt="Glastuinbouw algemeen">
+                    <img src="/images/glastuinbouw.png" alt="Glastuinbouw algemeen">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Glastuinbouw algemeen</h3>
@@ -360,7 +361,7 @@
                 <!-- Groente onder glas -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/groentenglas.png" alt="Tomatenteelt in kas">
+                    <img src="/images/groentenglas.png" alt="Tomatenteelt in kas">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Groente onder glas</h3>
@@ -372,7 +373,7 @@
                 <!-- Glasbloemen -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/bloemen.png" alt="Bloementeelt in kas">
+                    <img src="/images/bloemen.png" alt="Bloementeelt in kas">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Bloemen onder glas</h3>
@@ -384,7 +385,7 @@
                 <!-- Glasplanten -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/potplanten.png" alt="Potplantenteelt in kas">
+                    <img src="/images/potplanten.png" alt="Potplantenteelt in kas">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Planten onder glas</h3>
@@ -402,7 +403,7 @@
                 <!-- Open teelten algemeen -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/akker.png" alt="Open teelten algemeen">
+                    <img src="/images/akker.png" alt="Open teelten algemeen">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Opengrondstuinbouw algemeen</h3>
@@ -414,7 +415,7 @@
                 <!-- Fruit -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/bloemen.png" alt="Boomgaard met appelbomen">
+                    <img src="/images/fruit.png" alt="Boomgaard met appelbomen">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Fruit</h3>
@@ -426,7 +427,7 @@
                 <!-- Vollegronds groente -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/groenten.png" alt="Veld met vollegrondsgroente">
+                    <img src="/images/groenten.png" alt="Veld met vollegrondsgroente">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Vollegronds groente</h3>
@@ -438,7 +439,7 @@
                 <!-- Bomen -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/bomen.png" alt="Boomkwekerij">
+                    <img src="/images/bomen.png" alt="Boomkwekerij">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Bomen</h3>
@@ -450,7 +451,7 @@
                 <!-- Bollen -->
                 <div class="sector-card">
                   <div class="sector-card__image">
-                    <img src="images/bollen.png" alt="Bollenveld met tulpen">
+                    <img src="/images/bollen.png" alt="Bollenveld met tulpen">
                   </div>
                   <div class="sector-card__content">
                     <h3 class="sector-card__title">Bloembollen</h3>
@@ -484,8 +485,8 @@
 
       // Load header and footer
       document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', '../header.html');
-        loadHTML('footer-placeholder', '../footer.html');
+        loadHTML('header-placeholder', '/header.html');
+        loadHTML('footer-placeholder', '/footer.html');
       });
 
       // Mobile menu toggle
