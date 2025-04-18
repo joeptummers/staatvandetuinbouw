@@ -1,55 +1,270 @@
-<header role="banner" class="site-header">
-  <a href="#main-content" class="skip-link">Spring naar inhoud</a>
-  <div class="site-header__logo-wrapper container">
-    <a href="/staatvandetuinbouw/" aria-label="Logo Staat van de Tuinbouw (Home)" class="site-header__logo">
-      <img src="/staatvandetuinbouw/images/logo.png" alt="Logo Staat van de Tuinbouw" style="height: 60px; margin-right: 20px;">
-      <img src="/staatvandetuinbouw/images/wur-logo.png" alt="WUR Logo" style="height: 60px;">
-    </a>
-  </div>
-  <nav class="container desktop-navigation">
-    <ul class="desktop-navigation__list">
-      <li class="desktop-navigation__list-item">
-        <a href="/staatvandetuinbouw/" aria-current="location" aria-label="Home" class="link link--current">Home</a>
-      </li>
-      <li class="desktop-navigation__list-item">
-        <a href="/staatvandetuinbouw/sector.html" aria-label="Sector" class="link">Sector</a>
-      </li>
-      <li class="desktop-navigation__list-item">
-        <a href="/staatvandetuinbouw/onderwerpen.html" aria-label="Onderwerpen" class="link">Onderwerpen</a>
-      </li>
-      <li class="desktop-navigation__list-item">
-        <a href="/staatvandetuinbouw/regio.html" aria-label="Regio" class="link">Regio</a>
-      </li>
-      <li class="desktop-navigation__list-item">
-        <a href="/staatvandetuinbouw/zoeken/" aria-label="Zoeken" class="link">Zoeken</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="mobile-navigation container">
-    <a href="/staatvandetuinbouw/" aria-current="page" class="mobile-navigation__home-button">
-      <span class="sr-only">Home</span>
-    </a>
-    <button id="menubutton" aria-controls="menu" aria-haspopup="true" class="mobile-navigation__button">
-      <span class="sr-only">Menu</span>
-    </button>
-    <div class="mobile-navigation__menu" style="display:none">
-      <ul id="menu" aria-labelledby="menubutton" role="menu" class="mobile-navigation__list">
-        <li role="none" class="mobile-navigation__list-item">
-          <a href="/staatvandetuinbouw/" aria-current="location" aria-label="Home" role="menuitem" class="link link--current">Home</a>
-        </li>
-        <li role="none" class="mobile-navigation__list-item">
-          <a href="/staatvandetuinbouw/sector.html" aria-label="Sector" role="menuitem" class="link">Sector</a>
-        </li>
-        <li role="none" class="mobile-navigation__list-item">
-          <a href="/staatvandetuinbouw/onderwerpen.html" aria-label="Onderwerpen" role="menuitem" class="link">Onderwerpen</a>
-        </li>
-        <li role="none" class="mobile-navigation__list-item">
-          <a href="/staatvandetuinbouw/regio.html" aria-label="Regio" role="menuitem" class="link">Regio</a>
-        </li>
-        <li role="none" class="mobile-navigation__list-item">
-          <a href="/staatvandetuinbouw/zoeken/" aria-label="Zoeken" role="menuitem" class="link">Zoeken</a>
-        </li>
-      </ul>
+<style>
+  :root {
+    --primary-color: #008A00;
+    --secondary-color: #faaf00;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #008A00;
+    --link-hover-color: #006600;
+    --border-color: #e0e0e0;
+    --header-background: #f5f5f5;
+  }
+
+  .site-header {
+    background-color: var(--header-background);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .site-header__logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header__logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .site-header__logo {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .site-header__logo img {
+    height: 60px;
+    width: auto;
+  }
+
+  .desktop-navigation {
+    margin-top: 0;
+  }
+
+  .desktop-navigation__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .desktop-navigation__list-item {
+    margin: 0;
+  }
+
+  .link {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    position: relative;
+  }
+
+  .link:hover, 
+  .link:focus {
+    color: var(--link-hover-color);
+  }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--link-hover-color);
+    transition: width 0.3s ease;
+  }
+
+  .link:hover::after,
+  .link:focus::after {
+    width: 100%;
+  }
+
+  .mobile-navigation__button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .mobile-navigation__button-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: relative;
+  }
+
+  .mobile-navigation__button-icon::before,
+  .mobile-navigation__button-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+
+  .mobile-navigation__button-icon::before {
+    top: -6px;
+  }
+
+  .mobile-navigation__button-icon::after {
+    bottom: -6px;
+  }
+
+  .mobile-navigation__backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+
+  .mobile-navigation__menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    z-index: 101;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-navigation__close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+
+  .mobile-navigation__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-navigation__list-item {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 768px) {
+    .desktop-navigation {
+      display: none;
+    }
+
+    .mobile-navigation__button {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .site-header__logos {
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<header class="site-header">
+  <div class="container">
+    <div class="site-header__logo-wrapper">
+      <div class="site-header__logos">
+        <a href="../index.html" class="site-header__logo">
+          <img src="../images/logo.png" alt="Staat van de Tuinbouw">
+        </a>
+        <a href="https://www.wur.nl" class="site-header__logo">
+          <img src="../images/wur-logo.png" alt="Wageningen University & Research">
+        </a>
+      </div>
+      <nav class="desktop-navigation" aria-label="Hoofdnavigatie">
+        <ul class="desktop-navigation__list">
+          <li class="desktop-navigation__list-item">
+            <a href="../index.html" class="link">Home</a>
+          </li>
+          <li class="desktop-navigation__list-item">
+            <a href="../sector.html" class="link">Sector</a>
+          </li>
+          <li class="desktop-navigation__list-item">
+            <a href="../onderwerpen.html" class="link">Onderwerpen</a>
+          </li>
+          <li class="desktop-navigation__list-item">
+            <a href="../regio.html" class="link">Regio</a>
+          </li>
+        </ul>
+      </nav>
+      <button id="menubutton" class="mobile-navigation__button" aria-label="Menu openen">
+        <span class="mobile-navigation__button-icon"></span>
+      </button>
     </div>
   </div>
-</header> 
+</header>
+<div class="mobile-navigation__backdrop"></div>
+<nav class="mobile-navigation__menu" aria-label="Mobiele navigatie">
+  <button class="mobile-navigation__close-button" aria-label="Menu sluiten">×</button>
+  <ul class="mobile-navigation__list">
+    <li class="mobile-navigation__list-item">
+      <a href="../index.html" class="link">Home</a>
+    </li>
+    <li class="mobile-navigation__list-item">
+      <a href="../sector.html" class="link">Sector</a>
+    </li>
+    <li class="mobile-navigation__list-item">
+      <a href="../onderwerpen.html" class="link">Onderwerpen</a>
+    </li>
+    <li class="mobile-navigation__list-item">
+      <a href="../regio.html" class="link">Regio</a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('menubutton');
+    const menu = document.querySelector('.mobile-navigation__menu');
+    const backdrop = document.querySelector('.mobile-navigation__backdrop');
+    
+    if (menuButton && menu && backdrop) {
+      menuButton.addEventListener('click', function() {
+        menu.style.display = 'block';
+        backdrop.style.display = 'block';
+      });
+      
+      const closeButton = document.querySelector('.mobile-navigation__close-button');
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
+          menu.style.display = 'none';
+          backdrop.style.display = 'none';
+        });
+      }
+      
+      backdrop.addEventListener('click', function() {
+        menu.style.display = 'none';
+        backdrop.style.display = 'none';
+      });
+    }
+  });
+</script> 

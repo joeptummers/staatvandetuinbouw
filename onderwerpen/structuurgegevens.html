@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
-    <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:image" content="/staatvandetuinbouw/images/og-image.png">
-    <meta property="og:title" content="Staat van de Tuinbouw - Structuurgegevens">
-    <meta property="og:url" content="https://[jouw-gebruikersnaam].github.io/staatvandetuinbouw/onderwerpen/structuurgegevens.html">
-    <title>Staat van de Tuinbouw - Structuurgegevens</title>
-    <link href="/staatvandetuinbouw/images/favicon.png" rel="icon" type="image/png">
+    <meta name="description" content="Structuurgegevens van de Nederlandse tuinbouw">
+    <meta name="og:description" content="Structuurgegevens van de Nederlandse tuinbouw">
+    <meta name="og:image" content="../images/og-image.png">
+    <meta property="og:title" content="Structuurgegevens">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/structuurgegevens/">
+    <title>Structuurgegevens - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
     <style>
       :root {
         --primary-color: #008A00;
@@ -357,49 +357,122 @@
 
       <main>
         <section class="container">
-          <div class="grid">
-            <div style="grid-column: span 12;">
-              <h1 id="main-content">Structuurgegevens</h1>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item">Structuurgegevens</li>
+          </ul>
+          
+          <h1 id="main-content">Structuurgegevens in de tuinbouw</h1>
+          <p>Deze pagina geeft een overzicht van de beschikbare structuurgegevens van de verschillende tuinbouwsectoren in Nederland. Per regio worden de indicatoren getoond die informatie geven over de structuur van de sector.</p>
+          
+          <!-- Nederland totaal -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Nederland totaal</h3>
             </div>
-
-            <div style="grid-column: span 6;">
-              <div class="card">
-                <picture aria-hidden="true" class="card__image">
-                  <img src="/staatvandetuinbouw/images/structuurgegevens.png" alt="Structuurgegevens" class="image">
-                </picture>
-                <div class="card__title-wrapper">
-                  <h2 class="card__title">Bedrijven en areaal</h2>
-                </div>
-                <div class="card__content">
-                  <p>Informatie over het aantal bedrijven en het areaal in de tuinbouwsector</p>
-                </div>
-                <div class="card__link-wrapper">
-                  <a href="/staatvandetuinbouw/onderwerpen/structuurgegevens/bedrijven.html" class="link card__link">
-                    <span class="link__content">Lees meer <span class="sr-only">over bedrijven en areaal</span></span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div style="grid-column: span 6;">
-              <div class="card">
-                <picture aria-hidden="true" class="card__image">
-                  <img src="/staatvandetuinbouw/images/werkgelegenheid.png" alt="Werkgelegenheid" class="image">
-                </picture>
-                <div class="card__title-wrapper">
-                  <h2 class="card__title">Werkgelegenheid</h2>
-                </div>
-                <div class="card__content">
-                  <p>Informatie over werkgelegenheid in de tuinbouwsector</p>
-                </div>
-                <div class="card__link-wrapper">
-                  <a href="/staatvandetuinbouw/onderwerpen/structuurgegevens/werkgelegenheid.html" class="link card__link">
-                    <span class="link__content">Lees meer <span class="sr-only">over werkgelegenheid</span></span>
-                  </a>
-                </div>
-              </div>
+            <div class="province-content active">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal" class="indicator-link">Totaal areaal</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/bedrijven" class="indicator-link">Aantal bedrijven</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/gewassen" class="indicator-link">Belangrijkste gewassen</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/specialisatie" class="indicator-link">Specialisatiegraad</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/leeftijd" class="indicator-link">Leeftijd ondernemers</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/opvolging" class="indicator-link">Opvolgingssituatie</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/grondmobiliteit" class="indicator-link">Grondmobiliteit</a>
+                </li>
+              </ul>
             </div>
           </div>
+          
+          <!-- Zuid-Holland -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Zuid-Holland</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/bedrijven" class="indicator-link">Aantal bedrijven <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/gewassen" class="indicator-link">Belangrijkste gewassen <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/specialisatie" class="indicator-link">Specialisatiegraad <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/leeftijd" class="indicator-link">Leeftijd ondernemers <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/opvolging" class="indicator-link">Opvolgingssituatie <span class="province-abbr">(ZH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/zuid-holland/grondmobiliteit" class="indicator-link">Grondmobiliteit <span class="province-abbr">(ZH)</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Noord-Holland -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Noord-Holland</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/noord-holland/areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/noord-holland/bedrijven" class="indicator-link">Aantal bedrijven <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/noord-holland/opvolging" class="indicator-link">Opvolgingssituatie <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/noord-holland/grondmobiliteit" class="indicator-link">Grondmobiliteit <span class="province-abbr">(NH)</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Friesland -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Friesland</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/friesland/areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(FR)</span></a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/friesland/bedrijven" class="indicator-link">Aantal bedrijven <span class="province-abbr">(FR)</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
         </section>
       </main>
 
@@ -419,8 +492,8 @@
 
       // Load header and footer
       document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', '/staatvandetuinbouw/header.html');
-        loadHTML('footer-placeholder', '/staatvandetuinbouw/footer.html');
+        loadHTML('header-placeholder', '../header.html');
+        loadHTML('footer-placeholder', '../footer.html');
       });
 
       // Mobile menu toggle

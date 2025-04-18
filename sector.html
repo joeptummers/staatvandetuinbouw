@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
-    <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:image" content="/staatvandetuinbouw/images/og-image.png">
-    <meta property="og:title" content="Staat van de Tuinbouw - Sectoren">
-    <meta property="og:url" content="https://[jouw-gebruikersnaam].github.io/staatvandetuinbouw/sector.html">
-    <title>Staat van de Tuinbouw - Sectoren</title>
-    <link href="/staatvandetuinbouw/images/favicon.png" rel="icon" type="image/png">
+    <meta name="description" content="Overzicht van tuinbouwsectoren in Nederland">
+    <meta name="og:description" content="Overzicht van tuinbouwsectoren in Nederland">
+    <meta name="og:image" content="images/og-image.png">
+    <meta property="og:title" content="Sectoren">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/sector/">
+    <title>Sectoren - Staat van de Tuinbouw</title>
     <style>
       :root {
         --primary-color: #008A00;
@@ -333,49 +332,139 @@
 
       <main>
         <section class="container">
-          <div class="grid">
-            <div style="grid-column: span 12;">
-              <h1 id="main-content">Sectoren</h1>
-            </div>
-
-            <div style="grid-column: span 6;">
-              <div class="card">
-                <picture aria-hidden="true" class="card__image">
-                  <img src="/staatvandetuinbouw/images/glastuinbouw.png" alt="Glastuinbouw" class="image">
-                </picture>
-                <div class="card__title-wrapper">
-                  <h2 class="card__title">Glastuinbouw</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="link">Home</a></li>
+            <li class="breadcrumb-item">Sector</li>
+          </ul>
+          
+          <h1 id="main-content">Tuinbouwsectoren</h1>
+          <p>De Nederlandse tuinbouw kent verschillende sectoren, elk met hun eigen kenmerken en uitdagingen. Op deze pagina vindt u een overzicht van de belangrijkste tuinbouwsectoren in Nederland.</p>
+          
+          <div class="sector-list">
+            <!-- Glastuinbouw -->
+            <div class="sector-category">
+              <h2 class="sector-category-title">Glastuinbouw</h2>
+              <div class="sector-cards">
+                <!-- Glastuinbouw algemeen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/glastuinbouw.png" alt="Glastuinbouw algemeen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Glastuinbouw algemeen</h3>
+                    <p class="sector-card__description">Algemene informatie over de Nederlandse glastuinbouwsector, waaronder trends, ontwikkelingen en feiten die gelden voor alle glastuinbouwbedrijven.</p>
+                    <a href="sector/glas/algemeen/" class="sector-card__link">Meer over glastuinbouw algemeen</a>
+                  </div>
                 </div>
-                <div class="card__content">
-                  <p>Informatie over de glastuinbouwsector in Nederland</p>
+                
+                <!-- Groente onder glas -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/groentenglas.png" alt="Tomatenteelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Groente onder glas</h3>
+                    <p class="sector-card__description">De Nederlandse glasgroentesector is wereldwijd bekend om zijn tomaten, paprika's en komkommers. Innovatieve teelttechnieken zorgen voor hoge opbrengsten en minimale milieubelasting.</p>
+                    <a href="/sector/glas/groente/" class="sector-card__link">Meer over groente onder glas</a>
+                  </div>
                 </div>
-                <div class="card__link-wrapper">
-                  <a href="/staatvandetuinbouw/sector/glas/" class="link card__link">
-                    <span class="link__content">Lees meer <span class="sr-only">over Glastuinbouw</span></span>
-                  </a>
+                
+                <!-- Glasbloemen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bloemen.png" alt="Bloementeelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bloemen onder glas</h3>
+                    <p class="sector-card__description">Nederland is toonaangevend in de teelt van snijbloemen onder glas. Rozen, chrysanten en gerbera's zijn belangrijke exportproducten met een hoge sierwaarde.</p>
+                    <a href="/sector/glas/bloemen/" class="sector-card__link">Meer over bloemen onder glas</a>
+                  </div>
+                </div>
+                
+                <!-- Glasplanten -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/potplanten.png" alt="Potplantenteelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Planten onder glas</h3>
+                    <p class="sector-card__description">De Nederlandse potplantenteelt produceert een breed assortiment aan kamerplanten en perkplanten. Moderne klimaatbeheersing zorgt voor optimale groeiomstandigheden.</p>
+                    <a href="/sector/glas/planten/" class="sector-card__link">Meer over planten onder glas</a>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div style="grid-column: span 6;">
-              <div class="card">
-                <picture aria-hidden="true" class="card__image">
-                  <img src="/staatvandetuinbouw/images/groentenglas.png" alt="Open grond tuinbouw" class="image">
-                </picture>
-                <div class="card__title-wrapper">
-                  <h2 class="card__title">Open grond tuinbouw</h2>
+            
+            <!-- Open teelten -->
+            <div class="sector-category">
+              <h2 class="sector-category-title">Opengrondstuinbouw</h2>
+              <div class="sector-cards">
+                <!-- Open teelten algemeen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/akker.png" alt="Open teelten algemeen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Opengrondstuinbouw algemeen</h3>
+                    <p class="sector-card__description">Algemene informatie over de Nederlandse opengrondstuinbouw, waaronder trends, ontwikkelingen en feiten die gelden voor alle open teelten.</p>
+                    <a href="/sector/opengrondstuinbouw/algemeen/" class="sector-card__link">Meer over opengrondstuinbouw algemeen</a>
+                  </div>
                 </div>
-                <div class="card__content">
-                  <p>Informatie over de open grond tuinbouwsector in Nederland</p>
+                
+                <!-- Fruit -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bloemen.png" alt="Boomgaard met appelbomen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Fruit</h3>
+                    <p class="sector-card__description">De Nederlandse fruitteelt is gespecialiseerd in appels, peren en klein fruit zoals aardbeien en bessen. Nieuwe rassen en teelttechnieken zorgen voor toenemende productiviteit.</p>
+                    <a href="/sector/opengrondstuinbouw/fruit/" class="sector-card__link">Meer over fruitteelt</a>
+                  </div>
                 </div>
-                <div class="card__link-wrapper">
-                  <a href="/staatvandetuinbouw/sector/opengrond/" class="link card__link">
-                    <span class="link__content">Lees meer <span class="sr-only">over Open grond tuinbouw</span></span>
-                  </a>
+                
+                <!-- Vollegronds groente -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/groenten.png" alt="Veld met vollegrondsgroente">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Vollegronds groente</h3>
+                    <p class="sector-card__description">De teelt van groenten in de vollegrond vormt een belangrijke pijler van de Nederlandse tuinbouw. Uien, wortelen, kool en vele andere gewassen worden met hoge efficiëntie geteeld.</p>
+                    <a href="/sector/opengrondstuinbouw/vollegronds-groente/" class="sector-card__link">Meer over vollegronds groente</a>
+                  </div>
+                </div>
+                
+                <!-- Bomen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bomen.png" alt="Boomkwekerij">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bomen</h3>
+                    <p class="sector-card__description">De Nederlandse boomkwekerij is internationaal toonaangevend. Een breed assortiment van bomen en struiken voor tuin, park en landschap wordt geteeld met hoge kwaliteit.</p>
+                    <a href="/sector/opengrondstuinbouw/bomen/" class="sector-card__link">Meer over boomkwekerij</a>
+                  </div>
+                </div>
+                
+                <!-- Bollen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bollen.png" alt="Bollenveld met tulpen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bloembollen</h3>
+                    <p class="sector-card__description">Nederland is wereldwijd bekend om zijn bloembollen, met name tulpen. De bollensector produceert voor zowel de professionele markt als voor consumenten over de hele wereld.</p>
+                    <a href="/sector/opengrondstuinbouw/bollen/" class="sector-card__link">Meer over bloembollen</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
         </section>
       </main>
 
@@ -395,8 +484,8 @@
 
       // Load header and footer
       document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', '/staatvandetuinbouw/header.html');
-        loadHTML('footer-placeholder', '/staatvandetuinbouw/footer.html');
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
       });
 
       // Mobile menu toggle

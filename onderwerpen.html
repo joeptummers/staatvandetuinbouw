@@ -6,11 +6,10 @@
     <meta property="og:type" content="website">
     <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
     <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:image" content="/staatvandetuinbouw/images/og-image.png">
-    <meta property="og:title" content="Staat van de Tuinbouw - Onderwerpen">
-    <meta property="og:url" content="https://[jouw-gebruikersnaam].github.io/staatvandetuinbouw/onderwerpen.html">
-    <title>Staat van de Tuinbouw - Onderwerpen</title>
-    <link href="/staatvandetuinbouw/images/favicon.png" rel="icon" type="image/png">
+    <meta name="og:image" content="images/og-image.png">
+    <meta property="og:title" content="Onderwerpen">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/">
+    <title>Onderwerpen - Staat van de Tuinbouw</title>
     <style>
       :root {
         --primary-color: #008A00;
@@ -315,30 +314,69 @@
 
       <main>
         <section class="container">
-          <div class="grid">
-            <div style="grid-column: span 12;">
-              <h1 id="main-content">Onderwerpen</h1>
-            </div>
-
-            <div style="grid-column: span 6;">
-              <div class="card">
-                <picture aria-hidden="true" class="card__image">
-                  <img src="/staatvandetuinbouw/images/structuurgegevens.png" alt="Structuurgegevens" class="image">
-                </picture>
-                <div class="card__title-wrapper">
-                  <h2 class="card__title">Structuurgegevens</h2>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html" class="link">Home</a></li>
+            <li class="breadcrumb-item">Onderwerpen</li>
+          </ul>
+          
+          <h1 id="main-content">Onderwerpen in de tuinbouw</h1>
+          <p>Op deze pagina vindt u informatie over verschillende onderwerpen die spelen in de Nederlandse tuinbouwsector, van structuurgegevens tot duurzaamheid.</p>
+          
+          <div class="topic-list">
+            <div class="topic-cards">
+              <!-- Structuurgegevens -->
+              <div class="topic-card">
+                <div class="topic-card__image">
+                  <img src="images/structuurgegevens.png" alt="Structuurgegevens">
                 </div>
-                <div class="card__content">
-                  <p>Informatie over de structuur van de tuinbouwsector in Nederland</p>
+                <div class="topic-card__content">
+                  <h3 class="topic-card__title">Structuurgegevens</h3>
+                  <p class="topic-card__description">Informatie over aantallen bedrijven, arealen en bedrijfsgroottes binnen de verschillende tuinbouwsectoren in Nederland.</p>
+                  <a href="onderwerpen/structuurgegevens.html" class="topic-card__link">Meer over structuurgegevens</a>
                 </div>
-                <div class="card__link-wrapper">
-                  <a href="/staatvandetuinbouw/onderwerpen/structuurgegevens.html" class="link card__link">
-                    <span class="link__content">Lees meer <span class="sr-only">over Structuurgegevens</span></span>
-                  </a>
+              </div>
+              
+              <!-- Financieel/Economische gegevens -->
+              <div class="topic-card">
+                <div class="topic-card__image">
+                  <img src="images/financieel.png" alt="Financieel/Economische gegevens">
+                </div>
+                <div class="topic-card__content">
+                  <h3 class="topic-card__title">Financieel/Economische gegevens</h3>
+                  <p class="topic-card__description">Cijfers over omzet, export, toegevoegde waarde, winstgevendheid en investeringen binnen de tuinbouwsector.</p>
+                  <a href="/onderwerpen/financieel-economisch/" class="topic-card__link">Meer over financieel/economische gegevens</a>
+                </div>
+              </div>
+              
+              <!-- Cluster -->
+              <div class="topic-card">
+                <div class="topic-card__image">
+                  <img src="images/cluster.png" alt="Cluster">
+                </div>
+                <div class="topic-card__content">
+                  <h3 class="topic-card__title">Cluster</h3>
+                  <p class="topic-card__description">Informatie over het tuinbouwcluster, de onderlinge verbanden tussen bedrijven en de rol van de keten binnen de tuinbouwsector.</p>
+                  <a href="/onderwerpen/cluster/" class="topic-card__link">Meer over het tuinbouwcluster</a>
+                </div>
+              </div>
+              
+              <!-- Duurzaamheid -->
+              <div class="topic-card">
+                <div class="topic-card__image">
+                  <img src="images/duurzaamheid.png" alt="Duurzaamheid">
+                </div>
+                <div class="topic-card__content">
+                  <h3 class="topic-card__title">Duurzaamheid</h3>
+                  <p class="topic-card__description">Cijfers over energie, water, gewasbescherming, klimaatimpact en andere duurzaamheidsonderwerpen binnen de tuinbouwsector.</p>
+                  <a href="/onderwerpen/duurzaamheid/" class="topic-card__link">Meer over duurzaamheid</a>
                 </div>
               </div>
             </div>
           </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
         </section>
       </main>
 
@@ -358,8 +396,8 @@
 
       // Load header and footer
       document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', '/staatvandetuinbouw/header.html');
-        loadHTML('footer-placeholder', '/staatvandetuinbouw/footer.html');
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
       });
 
       // Mobile menu toggle
