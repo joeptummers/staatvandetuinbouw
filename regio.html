@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Tuinbouw per regio in Nederland">
+    <meta name="og:description" content="Tuinbouw per regio in Nederland">
+    <meta name="og:image" content="https://www.example.org/tuinbouw/images/og-image.png">
+    <meta property="og:title" content="Regio's">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/regio/">
+    <title>Regio's - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Region Cards */
+      .region-list {
+        margin: 30px 0;
+      }
+      
+      .region-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+      
+      .region-card {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .region-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .region-card__image {
+        width: 100%;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f8f8;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .region-card__image svg {
+        width: 100%;
+        height: 100%;
+        max-width: 120px;
+        max-height: 120px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .region-card__image::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--border-color), transparent);
+      }
+      
+      .region-card__content {
+        padding: 20px;
+      }
+      
+      .region-card__title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      
+      .region-card__description {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+      
+      .region-card__link {
+        display: inline-block;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+      
+      /* Featured region */
+      .featured-region {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      @media (min-width: 768px) {
+        .featured-region {
+          flex-direction: row;
+        }
+      }
+      
+      .featured-region__image {
+        width: 100%;
+        height: 200px;
+      }
+      
+      @media (min-width: 768px) {
+        .featured-region__image {
+          width: 40%;
+          height: auto;
+        }
+      }
+      
+      .featured-region__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .featured-region__content {
+        padding: 30px;
+        flex: 1;
+      }
+      
+      .featured-region__title {
+        margin-bottom: 15px;
+      }
+      
+      .featured-region__description {
+        margin-bottom: 20px;
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+      
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation {
+          display: block;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .region-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item">Regio</li>
+          </ul>
+          
+          <h1 id="main-content">Tuinbouw per regio</h1>
+          <p>Bekijk cijfers en feiten over de Nederlandse tuinbouw, uitgesplitst per provincie. Elke regio heeft zijn eigen specialismen en kenmerken binnen de tuinbouwsector.</p>
+          
+          <div class="region-list">
+            <!-- Featured region: Nederland totaal -->
+            <div class="featured-region">
+              <div class="featured-region__image">
+                <img src="images/kaartnl.png" alt="Kaart van Nederland" style="width: 40%; max-width: 400px; height: auto;">
+              </div>
+              <div class="featured-region__content">
+                <h2 class="featured-region__title">Nederland totaal</h2>
+                <p class="featured-region__description">Een overzicht van de tuinbouwsector voor heel Nederland. Bekijk het totale areaal, aantal bedrijven, productiewaarde en exportcijfers voor alle tuinbouwsectoren in Nederland.</p>
+                <a href="/regio/nederland/" class="region-card__link">Meer over de Nederlandse tuinbouw</a>
+              </div>
+            </div>
+            
+            <h2>Per provincie</h2>
+            
+            <div class="region-cards">
+              <!-- Noord-Holland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">NH</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Noord-Holland</h3>
+                  <p class="region-card__description">Noord-Holland heeft een sterke positie in bloembollen en glastuinbouw, met belangrijke productiegebieden rondom Aalsmeer en in de Kop van Noord-Holland.</p>
+                  <a href="/regio/noord-holland/" class="region-card__link">Meer over Noord-Holland</a>
+                </div>
+              </div>
+              
+              <!-- Zuid-Holland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">ZH</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Zuid-Holland</h3>
+                  <p class="region-card__description">Zuid-Holland is de belangrijkste glastuinbouwprovincie van Nederland, met grote concentraties in het Westland en rondom Bleiswijk.</p>
+                  <a href="/regio/zuid-holland/" class="region-card__link">Meer over Zuid-Holland</a>
+                </div>
+              </div>
+              
+              <!-- Zeeland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">ZE</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Zeeland</h3>
+                  <p class="region-card__description">Zeeland staat bekend om zijn fruitteelt en vollegrondsgroenten, waarbij de goede klimaatomstandigheden bijdragen aan kwalitatief hoogwaardige producten.</p>
+                  <a href="/regio/zeeland/" class="region-card__link">Meer over Zeeland</a>
+                </div>
+              </div>
+              
+              <!-- Noord-Brabant -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">NB</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Noord-Brabant</h3>
+                  <p class="region-card__description">Noord-Brabant heeft een gevarieerde tuinbouwsector, met zowel glastuinbouw als vollegrondsteelten, met belangrijke clusters rondom Breda en Eindhoven.</p>
+                  <a href="/regio/noord-brabant/" class="region-card__link">Meer over Noord-Brabant</a>
+                </div>
+              </div>
+              
+              <!-- Limburg -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">LI</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Limburg</h3>
+                  <p class="region-card__description">Limburg is belangrijk voor de boomkwekerij en glastuinbouw, met name in het gebied rondom Venlo en Noord-Limburg.</p>
+                  <a href="/regio/limburg/" class="region-card__link">Meer over Limburg</a>
+                </div>
+              </div>
+              
+              <!-- Gelderland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">GE</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Gelderland</h3>
+                  <p class="region-card__description">Gelderland kent een diverse tuinbouwsector, met fruitteelt in de Betuwe en laanboomteelt rond Opheusden als belangrijke specialisaties.</p>
+                  <a href="/regio/gelderland/" class="region-card__link">Meer over Gelderland</a>
+                </div>
+              </div>
+              
+              <!-- Utrecht -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">UT</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Utrecht</h3>
+                  <p class="region-card__description">Utrecht heeft een kleinere maar gevarieerde tuinbouwsector, met fruitteelt en boomkwekerij als belangrijke onderdelen.</p>
+                  <a href="/regio/utrecht/" class="region-card__link">Meer over Utrecht</a>
+                </div>
+              </div>
+              
+              <!-- Flevoland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">FL</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Flevoland</h3>
+                  <p class="region-card__description">Flevoland is bekend om zijn akkerbouw met vollegrondsgroenten als belangrijke tuinbouwsector, waarbij de vruchtbare poldergrond voor goede opbrengsten zorgt.</p>
+                  <a href="/regio/flevoland/" class="region-card__link">Meer over Flevoland</a>
+                </div>
+              </div>
+              
+              <!-- Overijssel -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">OV</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Overijssel</h3>
+                  <p class="region-card__description">Overijssel heeft een kleinere tuinbouwsector, met diverse teelten waaronder boomkwekerij in het gebied rond Zwolle.</p>
+                  <a href="/regio/overijssel/" class="region-card__link">Meer over Overijssel</a>
+                </div>
+              </div>
+              
+              <!-- Drenthe -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">DR</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Drenthe</h3>
+                  <p class="region-card__description">Drenthe heeft een bescheiden maar groeiende tuinbouwsector, met name in de glastuinbouw rondom Emmen.</p>
+                  <a href="/regio/drenthe/" class="region-card__link">Meer over Drenthe</a>
+                </div>
+              </div>
+              
+              <!-- Friesland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">FR</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Friesland</h3>
+                  <p class="region-card__description">Friesland heeft een kleine maar diverse tuinbouwsector, met vollegrondsteelten als belangrijkste onderdeel.</p>
+                  <a href="/regio/friesland/" class="region-card__link">Meer over Friesland</a>
+                </div>
+              </div>
+              
+              <!-- Groningen -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
+                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">GR</text>
+                  </svg>
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Groningen</h3>
+                  <p class="region-card__description">Groningen heeft een groeiende tuinbouwsector, met name in vollegronds groenteteelt en enkele glastuinbouwgebieden.</p>
+                  <a href="/regio/groningen/" class="region-card__link">Meer over Groningen</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script>
+      // Function to load HTML content
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error('Error loading HTML:', error));
+      }
+
+      // Load header and footer
+      document.addEventListener('DOMContentLoaded', function() {
+        loadHTML('header-placeholder', '/header.html');
+        loadHTML('footer-placeholder', '/footer.html');
+      });
+
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        
+        if (menuButton && menu && backdrop) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+          });
+          
+          const closeButton = document.querySelector('.mobile-navigation__close-button');
+          if (closeButton) {
+            closeButton.addEventListener('click', function() {
+              menu.style.display = 'none';
+              backdrop.style.display = 'none';
+            });
+          }
+          
+          backdrop.addEventListener('click', function() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+          });
+        }
+        
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (scrollToTopButton) {
+          window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+              scrollToTopButton.style.display = 'flex';
+              scrollToTopButton.classList.add('visible');
+            } else {
+              scrollToTopButton.classList.remove('visible');
+              setTimeout(function() {
+                if (!scrollToTopButton.classList.contains('visible')) {
+                  scrollToTopButton.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+          
+          scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

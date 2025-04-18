@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Overzicht van tuinbouwsectoren in Nederland">
+    <meta name="og:description" content="Overzicht van tuinbouwsectoren in Nederland">
+    <meta name="og:image" content="https://www.example.org/tuinbouw/images/og-image.png">
+    <meta property="og:title" content="Sectoren">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/sector/">
+    <title>Sectoren - Staat van de Tuinbouw</title>
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Hero section */
+      .hero {
+        margin-bottom: 40px;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Sector Cards */
+      .sector-list {
+        margin: 30px 0;
+      }
+      
+      .sector-category {
+        margin-bottom: 40px;
+      }
+      
+      .sector-category-title {
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+      
+      .sector-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      
+      .sector-card {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .sector-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .sector-card__image {
+        width: 100%;
+        height: 180px;
+      }
+      
+      .sector-card__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .sector-card__content {
+        padding: 20px;
+      }
+      
+      .sector-card__title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      
+      .sector-card__description {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+      
+      .sector-card__link {
+        display: inline-block;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+      
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation {
+          display: block;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .sector-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item">Sector</li>
+          </ul>
+          
+          <h1 id="main-content">Tuinbouwsectoren</h1>
+          <p>De Nederlandse tuinbouw kent verschillende sectoren, elk met hun eigen kenmerken en uitdagingen. Op deze pagina vindt u een overzicht van de belangrijkste tuinbouwsectoren in Nederland.</p>
+          
+          <div class="sector-list">
+            <!-- Glastuinbouw -->
+            <div class="sector-category">
+              <h2 class="sector-category-title">Glastuinbouw</h2>
+              <div class="sector-cards">
+                <!-- Glastuinbouw algemeen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/glastuinbouw.png" alt="Glastuinbouw algemeen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Glastuinbouw algemeen</h3>
+                    <p class="sector-card__description">Algemene informatie over de Nederlandse glastuinbouwsector, waaronder trends, ontwikkelingen en feiten die gelden voor alle glastuinbouwbedrijven.</p>
+                    <a href="/sector/glas/algemeen/" class="sector-card__link">Meer over glastuinbouw algemeen</a>
+                  </div>
+                </div>
+                
+                <!-- Groente onder glas -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/groentenglas.png" alt="Tomatenteelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Groente onder glas</h3>
+                    <p class="sector-card__description">De Nederlandse glasgroentesector is wereldwijd bekend om zijn tomaten, paprika's en komkommers. Innovatieve teelttechnieken zorgen voor hoge opbrengsten en minimale milieubelasting.</p>
+                    <a href="/sector/glas/groente/" class="sector-card__link">Meer over groente onder glas</a>
+                  </div>
+                </div>
+                
+                <!-- Glasbloemen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bloemen.png" alt="Bloementeelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bloemen onder glas</h3>
+                    <p class="sector-card__description">Nederland is toonaangevend in de teelt van snijbloemen onder glas. Rozen, chrysanten en gerbera's zijn belangrijke exportproducten met een hoge sierwaarde.</p>
+                    <a href="/sector/glas/bloemen/" class="sector-card__link">Meer over bloemen onder glas</a>
+                  </div>
+                </div>
+                
+                <!-- Glasplanten -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/potplanten.png" alt="Potplantenteelt in kas">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Planten onder glas</h3>
+                    <p class="sector-card__description">De Nederlandse potplantenteelt produceert een breed assortiment aan kamerplanten en perkplanten. Moderne klimaatbeheersing zorgt voor optimale groeiomstandigheden.</p>
+                    <a href="/sector/glas/planten/" class="sector-card__link">Meer over planten onder glas</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Open teelten -->
+            <div class="sector-category">
+              <h2 class="sector-category-title">Opengrondstuinbouw</h2>
+              <div class="sector-cards">
+                <!-- Open teelten algemeen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/akker.png" alt="Open teelten algemeen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Opengrondstuinbouw algemeen</h3>
+                    <p class="sector-card__description">Algemene informatie over de Nederlandse opengrondstuinbouw, waaronder trends, ontwikkelingen en feiten die gelden voor alle open teelten.</p>
+                    <a href="/sector/opengrondstuinbouw/algemeen/" class="sector-card__link">Meer over opengrondstuinbouw algemeen</a>
+                  </div>
+                </div>
+                
+                <!-- Fruit -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bloemen.png" alt="Boomgaard met appelbomen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Fruit</h3>
+                    <p class="sector-card__description">De Nederlandse fruitteelt is gespecialiseerd in appels, peren en klein fruit zoals aardbeien en bessen. Nieuwe rassen en teelttechnieken zorgen voor toenemende productiviteit.</p>
+                    <a href="/sector/opengrondstuinbouw/fruit/" class="sector-card__link">Meer over fruitteelt</a>
+                  </div>
+                </div>
+                
+                <!-- Vollegronds groente -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/groenten.png" alt="Veld met vollegrondsgroente">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Vollegronds groente</h3>
+                    <p class="sector-card__description">De teelt van groenten in de vollegrond vormt een belangrijke pijler van de Nederlandse tuinbouw. Uien, wortelen, kool en vele andere gewassen worden met hoge efficiëntie geteeld.</p>
+                    <a href="/sector/opengrondstuinbouw/vollegronds-groente/" class="sector-card__link">Meer over vollegronds groente</a>
+                  </div>
+                </div>
+                
+                <!-- Bomen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bomen.png" alt="Boomkwekerij">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bomen</h3>
+                    <p class="sector-card__description">De Nederlandse boomkwekerij is internationaal toonaangevend. Een breed assortiment van bomen en struiken voor tuin, park en landschap wordt geteeld met hoge kwaliteit.</p>
+                    <a href="/sector/opengrondstuinbouw/bomen/" class="sector-card__link">Meer over boomkwekerij</a>
+                  </div>
+                </div>
+                
+                <!-- Bollen -->
+                <div class="sector-card">
+                  <div class="sector-card__image">
+                    <img src="images/bollen.png" alt="Bollenveld met tulpen">
+                  </div>
+                  <div class="sector-card__content">
+                    <h3 class="sector-card__title">Bloembollen</h3>
+                    <p class="sector-card__description">Nederland is wereldwijd bekend om zijn bloembollen, met name tulpen. De bollensector produceert voor zowel de professionele markt als voor consumenten over de hele wereld.</p>
+                    <a href="/sector/opengrondstuinbouw/bollen/" class="sector-card__link">Meer over bloembollen</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script>
+      // Function to load HTML content
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error('Error loading HTML:', error));
+      }
+
+      // Load header and footer
+      document.addEventListener('DOMContentLoaded', function() {
+        loadHTML('header-placeholder', '../header.html');
+        loadHTML('footer-placeholder', '../footer.html');
+      });
+
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        
+        if (menuButton && menu && backdrop) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+          });
+          
+          const closeButton = document.querySelector('.mobile-navigation__close-button');
+          if (closeButton) {
+            closeButton.addEventListener('click', function() {
+              menu.style.display = 'none';
+              backdrop.style.display = 'none';
+            });
+          }
+          
+          backdrop.addEventListener('click', function() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+          });
+        }
+        
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (scrollToTopButton) {
+          window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+              scrollToTopButton.style.display = 'flex';
+              scrollToTopButton.classList.add('visible');
+            } else {
+              scrollToTopButton.classList.remove('visible');
+              setTimeout(function() {
+                if (!scrollToTopButton.classList.contains('visible')) {
+                  scrollToTopButton.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+          
+          scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

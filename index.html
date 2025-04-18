@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
+    <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
+    <meta name="og:image" content="https://www.example.org/tuinbouw/images/og-image.png">
+    <meta property="og:title" content="Home">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/">
+    <title>Home - Staat van de Tuinbouw</title>
+    <link href="images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Hero section */
+      .hero {
+        margin-bottom: 40px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Chips */
+      .chip-list {
+        margin-bottom: 30px;
+      }
+      
+      .chip-list__title {
+        margin-bottom: 15px;
+      }
+      
+      .chip-list__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .chip-list__item {
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      
+      .chip-list__link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: var(--header-background);
+        border-radius: 20px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: background-color 0.2s;
+      }
+      
+      .chip-list__link:hover {
+        background-color: #e0e0e0;
+      }
+      
+      /* Icon list */
+      .icon-list {
+        margin-bottom: 30px;
+      }
+      
+      .icon-list__title {
+        margin-bottom: 20px;
+      }
+      
+      .icon-list__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .icon-list__item {
+        text-align: center;
+      }
+      
+      .icon-list__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-color);
+        padding: 15px;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+      }
+      
+      .icon-list__link:hover {
+        background-color: var(--header-background);
+      }
+      
+      .icon-list__link-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      
+      .icon-list__link-title {
+        font-weight: 500;
+      }
+      
+      /* Cards */
+      .card-list {
+        margin-bottom: 30px;
+      }
+      
+      .card-list__title {
+        margin-bottom: 20px;
+      }
+      
+      .card-list-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .card__image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .card__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .card__title-wrapper {
+        padding: 20px 20px 10px;
+      }
+      
+      .card__description-wrapper {
+        padding: 0 20px 20px;
+      }
+      
+      .card__link-wrapper {
+        padding: 0 20px 20px;
+      }
+      
+      .card__link {
+        display: inline-block;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+      
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation {
+          display: block;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .icon-list__list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <div class="grid">
+            <div style="grid-column: span 12;">
+              <div class="hero grid">
+                <div style="grid-column: span 7;">
+                  <div class="text">
+                    <h1 id="main-content">Staat van de Tuinbouw</h1>
+                    <p>Cijfers en feiten over de tuinbouwsector in Nederland</p>
+                  </div>
+                </div>
+                <div style="grid-column: span 5; grid-column-start: 8;">
+                  <picture aria-hidden="true">
+                    <img src="images/homepage.png" alt="Tuinbouw in Nederland" style="width: 500%; height: auto; border-radius: 8px;">
+                  </picture>
+                </div>
+              </div>
+            </div>
+
+            <div style="grid-column: span 12;">
+              <nav class="chip-list">
+                <h2 class="chip-list__title"><span class="text">Veelbekeken</span></h2>
+                <ul class="chip-list__list">
+                  <li class="chip-list__item">
+                    <a href="/sector/glas/groente/" class="link chip-list__link">
+                      <span class="text">Groente onder glas</span>
+                    </a>
+                  </li>
+                  <li class="chip-list__item">
+                    <a href="/sector/opengrondstuinbouw/fruit/" class="link chip-list__link">
+                      <span class="text">Bloembollen</span>
+                    </a>
+                  </li>
+                  <li class="chip-list__item">
+                    <a href="/onderwerpen/duurzaamheid/" class="link chip-list__link">
+                      <span class="text">Duurzaamheid in de tuinbouw</span>
+                    </a>
+                  </li>
+                  <li class="chip-list__item">
+                    <a href="/onderwerpen/innovatie/" class="link chip-list__link">
+                      <span class="text">Innovatie</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div style="grid-column: span 12;">
+              <div class="text">
+                <h2>Transparantie en duurzaamheid in de tuinbouw</h2>
+                <p><b>De website Staat van de Tuinbouw geeft inzicht in de laatste cijfers en trends over de tuinbouwsector in Nederland. Centraal staan de thema's duurzaamheid, innovatie en economische ontwikkeling binnen de verschillende deelsectoren.</b></p>
+                
+                <h3>Over deze website</h3>
+                <p>Op deze website staan feiten en cijfers over de duurzaamheidsprestaties van de Nederlandse tuinbouw. Via dit portaal is informatie over diverse tuinbouwsectoren in Nederland eenvoudig en snel toegankelijk.</p>
+              </div>
+            </div>
+
+            <div style="grid-column: span 12;">
+              <div class="text">
+                <h3>Contact of hulp nodig bij het gebruik van deze website?</h3>
+                <p>Heeft u een vraag of heeft u hulp nodig bij het gebruiken van deze website? Neem contact met ons op via het contactformulier of kijk bij de veelgestelde vragen.</p>
+              </div>
+            </div>
+
+            <div style="grid-column: span 12;">
+              <nav class="icon-list">
+                <h2 class="icon-list__title"><span class="text">Sectoren</span></h2>
+                <ul class="icon-list__list">
+                  <li class="icon-list__item">
+                    <a href="/sector/glas/groente/" aria-label="Groente onder glas" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/groentenglas.svg" alt="Groente onder glas icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Groente onder glas</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/glas/bloemen/" aria-label="Bloemen onder glas" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/bloemenglas.svg" alt="Bloemen onder glas icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Bloemen onder glas</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/glas/planten/" aria-label="Planten onder glas" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/plantenglas.svg" alt="Planten onder glas icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Planten onder glas</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/opengrondstuinbouw/fruit/" aria-label="Fruit" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/fruit.svg" alt="Fruit icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Fruit</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/opengrondstuinbouw/vollegronds-groente/" aria-label="Vollegronds groente" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/groenten.svg" alt="Vollegronds groente icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Vollegronds groente</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/opengrondstuinbouw/bomen/" aria-label="Bomen" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/bomen.svg" alt="Bomen icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Bomen</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/sector/opengrondstuinbouw/bollen/" aria-label="Bollen" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/bollen.svg" alt="Bollen icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Bloembollen</span>
+                    </a>
+                  </li>
+                  <li class="icon-list__item">
+                    <a href="/onderwerpen/" aria-label="Alle onderwerpen" class="link icon-list__link">
+                      <div class="icon icon-list__link-icon">
+                        <img src="icons/alle-onderwerpen.svg" alt="Alle onderwerpen icon" width="60" height="60" style="stroke: #faaf00; fill: #faaf00;">
+                      </div>
+                      <span class="text icon-list__link-title">Alle onderwerpen</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div style="grid-column: span 12;">
+              <div class="card-list">
+                <h2 class="card-list__title"><span class="text">Uitgelicht</span></h2>
+                <ul class="card-list-grid">
+                  <li class="card">
+                    <picture aria-hidden="true" class="card__image">
+                      <img src="images/watergebruik.png" alt="Watergebruik in de tuinbouw" class="image">
+                    </picture>
+                    <div class="card__title-wrapper">
+                      <h3 class="card__title"><span class="text">Duurzaam watergebruik</span></h3>
+                    </div>
+                    <div class="card__description-wrapper">
+                      <p class="text card__description">De Nederlandse glastuinbouw heeft het watergebruik per kg product met 99% verminderd in de afgelopen 10 jaar.</p>
+                    </div>
+                    <div class="card__link-wrapper">
+                      <a href="/onderwerpen/water/" class="link card__link">
+                        <span class="link__content"> Lees meer <span class="sr-only">over Duurzaam watergebruik</span></span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="card">
+                    <picture aria-hidden="true" class="card__image">
+                      <img src="images/gewasbescherming.png" alt="Gewasbescherming" class="image">
+                    </picture>
+                    <div class="card__title-wrapper">
+                      <h3 class="card__title"><span class="text">Innovatie in gewasbescherming</span></h3>
+                    </div>
+                    <div class="card__description-wrapper">
+                      <p class="text card__description">Biologische bestrijding heeft chemische gewasbescherming in de glasgroenteteelt met 99% verminderd sinds 2000.</p>
+                    </div>
+                    <div class="card__link-wrapper">
+                      <a href="/onderwerpen/gewasbescherming/" class="link card__link">
+                        <span class="link__content"> Lees meer <span class="sr-only">over Innovatie in gewasbescherming</span></span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="card">
+                    <picture aria-hidden="true" class="card__image">
+                      <img src="images/toegevoegdewaarde.png" alt="Toegevoegde waarde" class="image">
+                    </picture>
+                    <div class="card__title-wrapper">
+                      <h3 class="card__title"><span class="text">Toegevoegde waarde</span></h3>
+                    </div>
+                    <div class="card__description-wrapper">
+                      <p class="text card__description">De Nederlandse tuinbouw draagt voor 99 miljard euro bij aan de Nederlandse economie en zorgt voor meer dan 99.000 banen.</p>
+                    </div>
+                    <div class="card__link-wrapper">
+                      <a href="/onderwerpen/toegevoegde-waarde/" class="link card__link">
+                        <span class="link__content"> Lees meer <span class="sr-only">over Toegevoegde waarde</span></span>
+                      </a>
+                    </div>
+                  </li>
+                  <li class="card">
+                    <picture aria-hidden="true" class="card__image">
+                      <img src="images/energietransitie.png" alt="Energie in de glastuinbouw" class="image">
+                    </picture>
+                    <div class="card__title-wrapper">
+                      <h3 class="card__title"><span class="text">Energietransitie in de glastuinbouw</span></h3>
+                    </div>
+                    <div class="card__description-wrapper">
+                      <p class="text card__description">Het aandeel duurzame energie in de glastuinbouw is gestegen naar 99%, met als doel 99% in 2030.</p>
+                    </div>
+                    <div class="card__link-wrapper">
+                      <a href="/onderwerpen/energie/" class="link card__link">
+                        <span class="link__content"> Lees meer <span class="sr-only">over Energietransitie in de glastuinbouw</span></span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script>
+      // Function to load HTML content
+      function loadHTML(elementId, filePath) {
+        fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+          })
+          .catch(error => console.error('Error loading HTML:', error));
+      }
+
+      // Load header and footer
+      document.addEventListener('DOMContentLoaded', function() {
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+      });
+
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        
+        if (menuButton && menu && backdrop) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+          });
+          
+          const closeButton = document.querySelector('.mobile-navigation__close-button');
+          if (closeButton) {
+            closeButton.addEventListener('click', function() {
+              menu.style.display = 'none';
+              backdrop.style.display = 'none';
+            });
+          }
+          
+          backdrop.addEventListener('click', function() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+          });
+        }
+        
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (scrollToTopButton) {
+          window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+              scrollToTopButton.style.display = 'flex';
+              scrollToTopButton.classList.add('visible');
+            } else {
+              scrollToTopButton.classList.remove('visible');
+              setTimeout(function() {
+                if (!scrollToTopButton.classList.contains('visible')) {
+                  scrollToTopButton.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+          
+          scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
