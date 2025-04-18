@@ -6,11 +6,11 @@
     <meta property="og:type" content="website">
     <meta name="description" content="Feiten en cijfers over de tuinbouw in Nederland">
     <meta name="og:description" content="Feiten en cijfers over de tuinbouw in Nederland">
-    <meta name="og:image" content="images/og-image.png">
-    <meta property="og:title" content="Regio">
-    <meta property="og:url" content="https://www.example.org/tuinbouw/regio/">
-    <title>Regio - Staat van de Tuinbouw</title>
-    <link href="images/favicon.png" rel="icon" type="image/png">
+    <meta name="og:image" content="/staatvandetuinbouw/images/og-image.png">
+    <meta property="og:title" content="Staat van de Tuinbouw - Regio">
+    <meta property="og:url" content="https://[jouw-gebruikersnaam].github.io/staatvandetuinbouw/regio.html">
+    <title>Staat van de Tuinbouw - Regio</title>
+    <link href="/staatvandetuinbouw/images/favicon.png" rel="icon" type="image/png">
     <style>
       :root {
         --primary-color: #008A00;
@@ -386,215 +386,30 @@
 
       <main>
         <section class="container">
-          <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
-            <li class="breadcrumb-item">Regio</li>
-          </ul>
-          
-          <h1 id="main-content">Tuinbouw per regio</h1>
-          <p>Bekijk cijfers en feiten over de Nederlandse tuinbouw, uitgesplitst per provincie. Elke regio heeft zijn eigen specialismen en kenmerken binnen de tuinbouwsector.</p>
-          
-          <div class="region-list">
-            <!-- Featured region: Nederland totaal -->
-            <div class="featured-region">
-              <div class="featured-region__image">
-                <img src="images/kaartnl.png" alt="Kaart van Nederland" style="width: 40%; max-width: 400px; height: auto;">
-              </div>
-              <div class="featured-region__content">
-                <h2 class="featured-region__title">Nederland totaal</h2>
-                <p class="featured-region__description">Een overzicht van de tuinbouwsector voor heel Nederland. Bekijk het totale areaal, aantal bedrijven, productiewaarde en exportcijfers voor alle tuinbouwsectoren in Nederland.</p>
-                <a href="/regio/nederland/" class="region-card__link">Meer over de Nederlandse tuinbouw</a>
-              </div>
+          <div class="grid">
+            <div style="grid-column: span 12;">
+              <h1 id="main-content">Regio</h1>
             </div>
-            
-            <h2>Per provincie</h2>
-            
-            <div class="region-cards">
-              <!-- Noord-Holland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">NH</text>
-                  </svg>
+
+            <div style="grid-column: span 6;">
+              <div class="card">
+                <picture aria-hidden="true" class="card__image">
+                  <img src="/staatvandetuinbouw/images/regio.png" alt="Regio" class="image">
+                </picture>
+                <div class="card__title-wrapper">
+                  <h2 class="card__title">Regionale verdeling</h2>
                 </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Noord-Holland</h3>
-                  <p class="region-card__description">Noord-Holland heeft een sterke positie in bloembollen en glastuinbouw, met belangrijke productiegebieden rondom Aalsmeer en in de Kop van Noord-Holland.</p>
-                  <a href="/regio/noord-holland/" class="region-card__link">Meer over Noord-Holland</a>
+                <div class="card__content">
+                  <p>Informatie over de regionale verdeling van de tuinbouwsector in Nederland</p>
                 </div>
-              </div>
-              
-              <!-- Zuid-Holland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">ZH</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Zuid-Holland</h3>
-                  <p class="region-card__description">Zuid-Holland is de belangrijkste glastuinbouwprovincie van Nederland, met grote concentraties in het Westland en rondom Bleiswijk.</p>
-                  <a href="/regio/zuid-holland/" class="region-card__link">Meer over Zuid-Holland</a>
-                </div>
-              </div>
-              
-              <!-- Zeeland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">ZE</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Zeeland</h3>
-                  <p class="region-card__description">Zeeland staat bekend om zijn fruitteelt en vollegrondsgroenten, waarbij de goede klimaatomstandigheden bijdragen aan kwalitatief hoogwaardige producten.</p>
-                  <a href="/regio/zeeland/" class="region-card__link">Meer over Zeeland</a>
-                </div>
-              </div>
-              
-              <!-- Noord-Brabant -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">NB</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Noord-Brabant</h3>
-                  <p class="region-card__description">Noord-Brabant heeft een gevarieerde tuinbouwsector, met zowel glastuinbouw als vollegrondsteelten, met belangrijke clusters rondom Breda en Eindhoven.</p>
-                  <a href="/regio/noord-brabant/" class="region-card__link">Meer over Noord-Brabant</a>
-                </div>
-              </div>
-              
-              <!-- Limburg -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">LI</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Limburg</h3>
-                  <p class="region-card__description">Limburg is belangrijk voor de boomkwekerij en glastuinbouw, met name in het gebied rondom Venlo en Noord-Limburg.</p>
-                  <a href="/regio/limburg/" class="region-card__link">Meer over Limburg</a>
-                </div>
-              </div>
-              
-              <!-- Gelderland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">GE</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Gelderland</h3>
-                  <p class="region-card__description">Gelderland kent een diverse tuinbouwsector, met fruitteelt in de Betuwe en laanboomteelt rond Opheusden als belangrijke specialisaties.</p>
-                  <a href="/regio/gelderland/" class="region-card__link">Meer over Gelderland</a>
-                </div>
-              </div>
-              
-              <!-- Utrecht -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">UT</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Utrecht</h3>
-                  <p class="region-card__description">Utrecht heeft een kleinere maar gevarieerde tuinbouwsector, met fruitteelt en boomkwekerij als belangrijke onderdelen.</p>
-                  <a href="/regio/utrecht/" class="region-card__link">Meer over Utrecht</a>
-                </div>
-              </div>
-              
-              <!-- Flevoland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">FL</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Flevoland</h3>
-                  <p class="region-card__description">Flevoland is bekend om zijn akkerbouw met vollegrondsgroenten als belangrijke tuinbouwsector, waarbij de vruchtbare poldergrond voor goede opbrengsten zorgt.</p>
-                  <a href="/regio/flevoland/" class="region-card__link">Meer over Flevoland</a>
-                </div>
-              </div>
-              
-              <!-- Overijssel -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">OV</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Overijssel</h3>
-                  <p class="region-card__description">Overijssel heeft een kleinere tuinbouwsector, met diverse teelten waaronder boomkwekerij in het gebied rond Zwolle.</p>
-                  <a href="/regio/overijssel/" class="region-card__link">Meer over Overijssel</a>
-                </div>
-              </div>
-              
-              <!-- Drenthe -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">DR</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Drenthe</h3>
-                  <p class="region-card__description">Drenthe heeft een bescheiden maar groeiende tuinbouwsector, met name in de glastuinbouw rondom Emmen.</p>
-                  <a href="/regio/drenthe/" class="region-card__link">Meer over Drenthe</a>
-                </div>
-              </div>
-              
-              <!-- Friesland -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">FR</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Friesland</h3>
-                  <p class="region-card__description">Friesland heeft een kleine maar diverse tuinbouwsector, met vollegrondsteelten als belangrijkste onderdeel.</p>
-                  <a href="/regio/friesland/" class="region-card__link">Meer over Friesland</a>
-                </div>
-              </div>
-              
-              <!-- Groningen -->
-              <div class="region-card">
-                <div class="region-card__image">
-                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="#f0f0f0" stroke="#008A00" stroke-width="2"/>
-                    <text x="50" y="50" text-anchor="middle" fill="#008A00" font-size="12">GR</text>
-                  </svg>
-                </div>
-                <div class="region-card__content">
-                  <h3 class="region-card__title">Groningen</h3>
-                  <p class="region-card__description">Groningen heeft een groeiende tuinbouwsector, met name in vollegronds groenteteelt en enkele glastuinbouwgebieden.</p>
-                  <a href="/regio/groningen/" class="region-card__link">Meer over Groningen</a>
+                <div class="card__link-wrapper">
+                  <a href="/staatvandetuinbouw/regio/verdeling.html" class="link card__link">
+                    <span class="link__content">Lees meer <span class="sr-only">over regionale verdeling</span></span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-          
-          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
-            <span class="sr-only">Terug naar boven</span>
-          </button>
         </section>
       </main>
 
@@ -614,8 +429,8 @@
 
       // Load header and footer
       document.addEventListener('DOMContentLoaded', function() {
-        loadHTML('header-placeholder', 'header.html');
-        loadHTML('footer-placeholder', 'footer.html');
+        loadHTML('header-placeholder', '/staatvandetuinbouw/header.html');
+        loadHTML('footer-placeholder', '/staatvandetuinbouw/footer.html');
       });
 
       // Mobile menu toggle
