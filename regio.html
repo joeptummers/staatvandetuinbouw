@@ -176,8 +176,8 @@
       
       .region-cards {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
         margin-bottom: 40px;
       }
       
@@ -203,15 +203,16 @@
         padding: 20px;
         position: relative;
         overflow: hidden;
+        box-sizing: border-box;
       }
       
-      .region-card__image svg {
-        width: 100%;
-        height: 100%;
-        max-width: 120px;
-        max-height: 120px;
-        position: relative;
-        z-index: 1;
+      .region-card__image img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
       }
       
       .region-card__image::after {
@@ -587,6 +588,106 @@
                   <h3 class="region-card__title">Groningen</h3>
                   <p class="region-card__description">Groningen heeft een groeiende tuinbouwsector, met name in vollegronds groenteteelt en enkele glastuinbouwgebieden.</p>
                   <a href="/regio/groningen/" class="region-card__link">Meer over Groningen</a>
+                </div>
+              </div>
+            </div>
+
+            <h2>Per Greenport</h2>
+            
+            <div class="region-cards">
+              <!-- Greenport Aalsmeer -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_aalsmeer.png" alt="Greenport Aalsmeer">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Aalsmeer</h3>
+                  <p class="region-card__description">Het grootste bloemenveilingcentrum ter wereld, met een sterke focus op sierteelt en internationale handel.</p>
+                  <a href="/regio/greenport-aalsmeer/" class="region-card__link">Meer over Greenport Aalsmeer</a>
+                </div>
+              </div>
+              
+              <!-- Greenport Duin- en Bollenstreek -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_duinenbollenstreek.jpg" alt="Greenport Duin- en Bollenstreek">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Duin- en Bollenstreek</h3>
+                  <p class="region-card__description">Specialist in bloembollen en vaste planten, met een rijke historie in de bollenteelt.</p>
+                  <a href="/regio/greenport-duin-en-bollenstreek/" class="region-card__link">Meer over Greenport Duin- en Bollenstreek</a>
+                </div>
+              </div>
+              
+              <!-- Greenport Noord-Holland-Noord -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_noordhollandnoord.png" alt="Greenport Noord-Holland-Noord">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Noord-Holland-Noord</h3>
+                  <p class="region-card__description">Innovatieve glastuinbouwregio met focus op duurzame teelt en energie-efficiëntie.</p>
+                  <a href="/regio/greenport-noord-holland-noord/" class="region-card__link">Meer over Greenport Noord-Holland-Noord</a>
+                </div>
+              </div>
+              
+              <!-- Greenport Regio Boskoop -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_boskoop.png" alt="Greenport Regio Boskoop">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Regio Boskoop</h3>
+                  <p class="region-card__description">Wereldberoemd om zijn boomkwekerij en vaste planten, met een rijke traditie in de sierteelt.</p>
+                  <a href="/regio/greenport-boskoop/" class="region-card__link">Meer over Greenport Regio Boskoop</a>
+                </div>
+              </div>
+
+              <!-- Greenport Venlo -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_venlo.png" alt="Greenport Venlo">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Venlo</h3>
+                  <p class="region-card__description">Belangrijk centrum voor glastuinbouw en logistiek, met sterke internationale oriëntatie.</p>
+                  <a href="/regio/greenport-venlo/" class="region-card__link">Meer over Greenport Venlo</a>
+                </div>
+              </div>
+              
+              <!-- Greenport West-Holland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_westholland.png" alt="Greenport West-Holland">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport West-Holland</h3>
+                  <p class="region-card__description">Het grootste glastuinbouwgebied ter wereld, met focus op innovatie en duurzaamheid.</p>
+                  <a href="/regio/greenport-west-holland/" class="region-card__link">Meer over Greenport West-Holland</a>
+                </div>
+              </div>
+              
+              <!-- Greenport Noord Nederland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_noordnederland.png" alt="Greenport Noord Nederland">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Noord Nederland</h3>
+                  <p class="region-card__description">Innovatieve regio met focus op duurzame energie en circulaire tuinbouw.</p>
+                  <a href="/regio/greenport-noord-nederland/" class="region-card__link">Meer over Greenport Noord Nederland</a>
+                </div>
+              </div>
+              
+              <!-- Greenport Gelderland -->
+              <div class="region-card">
+                <div class="region-card__image">
+                  <img src="images/gp_gelderland.jpg" alt="Greenport Gelderland">
+                </div>
+                <div class="region-card__content">
+                  <h3 class="region-card__title">Greenport Gelderland</h3>
+                  <p class="region-card__description">Diverse tuinbouwregio met sterke focus op fruitteelt en boomkwekerij.</p>
+                  <a href="/regio/greenport-gelderland/" class="region-card__link">Meer over Greenport Gelderland</a>
                 </div>
               </div>
             </div>

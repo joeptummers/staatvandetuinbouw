@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <base href="/staatvandetuinbouw/">
+    <meta name="description" content="Bedrijven en gewassen van de Nederlandse tuinbouw">
+    <meta name="og:description" content="Bedrijven en gewassen van de Nederlandse tuinbouw">
+    <meta name="og:image" content="../images/og-image.png">
+    <meta property="og:title" content="Bedrijven en gewassen">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/bedrijven-en-gewassen/">
+    <title>Bedrijven en gewassen - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Indicator lists */
+      .indicator-section {
+        margin-bottom: 40px;
+      }
+      
+      .indicator-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .indicator-list li {
+        margin-bottom: 8px;
+        position: relative;
+      }
+      
+      .indicator-list li:before {
+        content: "•";
+        color: var(--secondary-color);
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
+      
+      /* Sector section */
+      .sector-section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+      }
+      
+      .sector-section h3 {
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+      
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation {
+          display: block;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      /* Province sections */
+      .province-section {
+        margin-bottom: 40px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .province-header {
+        background-color: var(--header-background);
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .province-header h3 {
+        margin: 0;
+      }
+      
+      .province-content {
+        padding: 20px;
+        display: none;
+      }
+      
+      .province-content.active {
+        display: block;
+      }
+      
+      /* Section headers */
+      .section-header {
+        background-color: var(--header-background);
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .section-header:hover {
+        background-color: #e8e8e8;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+      }
+
+      .section-header::after {
+        content: "▼";
+        font-size: 0.8em;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+      }
+
+      .section-header.collapsed::after {
+        transform: rotate(-90deg);
+      }
+
+      .section-content {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      .section-content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item">Bedrijven en gewassen</li>
+          </ul>
+          
+          <h1 id="main-content">Bedrijven en gewassen in de tuinbouw</h1>
+          <p>Deze pagina geeft een overzicht van de beschikbare gegevens over bedrijven en gewassen van de verschillende tuinbouwsectoren in Nederland. Per regio worden de indicatoren getoond die informatie geven over de structuur van de sector.</p>
+          
+          <!-- Nederland totaal -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Nederland totaal</h3>
+            </div>
+            <div class="province-content active">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/structuur-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/vergelijking-structuur" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/vergelijking-teelt" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="areaal_glas_nl.html" class="indicator-link">Totaal areaal</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/structuur-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/bollenbroei" class="indicator-link">Bollenbroei</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Inzicht per provincie -->
+          <div class="section-header">
+            <h2>Inzicht per provincie</h2>
+          </div>
+          <div class="section-content">
+            <!-- Noord-Brabant -->
+          <div class="province-section">
+            <div class="province-header">
+                <h3>Noord-Brabant</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(NB)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(NB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Limburg -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Limburg</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(LB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(LB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zeeland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zeeland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(ZL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(ZL)</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Noord-Holland -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Noord-Holland</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(NH)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(NH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zuid-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zuid-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Utrecht -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Utrecht</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(UT)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Gelderland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Gelderland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(GL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(GL)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Flevoland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Flevoland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(FL)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Overijssel -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Overijssel</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(OV)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Drenthe -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Drenthe</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(DR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Groningen -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Groningen</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(GR)</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Friesland -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Friesland</h3>
+            </div>
+            <div class="province-content">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                    <a href="/dashboard/friesland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(FR)</span></a>
+                </li>
+                <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(FR)</span></a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inzicht per Greenport -->
+          <div class="section-header">
+            <h2>Inzicht per Greenport</h2>
+          </div>
+          <div class="section-content">
+            <!-- Greenport Aalsmeer -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Aalsmeer</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Aalsmeer)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Duin- en Bollenstreek -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Duin- en Bollenstreek</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Duin- en Bollenstreek)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord-Holland-Noord -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord-Holland-Noord</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Noord-Holland-Noord)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Regio Boskoop -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Regio Boskoop</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Regio Boskoop)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Venlo -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Venlo</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Venlo)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport West-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport West-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport West-Holland)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Noord Nederland)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Oost-Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Oost-Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/bedrijven-grootte" class="indicator-link">Aantal bedrijven naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/areaal-grootte" class="indicator-link">Areaal onder glas naar grootteklasse ha tuinbouw onder glas <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/gespecialiseerd" class="indicator-link">Aantal gespecialiseerde en niet gespecialiseerde bedrijven <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/specialisatie" class="indicator-link">Specialisatiegraad areaal en bedrijven <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/vergelijking-bedrijven" class="indicator-link">Aantal bedrijven in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/vergelijking-gewassen" class="indicator-link">Belangrijkste gewassen in vergelijking met rest van Nederland <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/gemiddeld-areaal" class="indicator-link">Gemiddelde areaal per bedrijf <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/areaal-verdeling" class="indicator-link">Areaalverdeling naar de belangrijkste gewasgroepen <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/totaal-areaal" class="indicator-link">Totaal areaal <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/bedrijven-cultuurgrond" class="indicator-link">Aantal bedrijven naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/areaal-cultuurgrond" class="indicator-link">Areaal cultuurgrond naar grooteklasse ha cultuurgrond <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/bollenbroei" class="indicator-link">Bollenbroei <span class="province-abbr">(Greenport Oost-Nederland)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <button data-test="scroll-to-top" type="button" class="scroll-to-top" style="display:none">
+            <span class="sr-only">Terug naar boven</span>
+          </button>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script>
+      // Load header and footer
+      fetch('header.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('header-placeholder').innerHTML = data;
+          });
+
+      fetch('footer.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+          });
+
+      // Mobile menu toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        
+        if (menuButton && menu && backdrop) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+          });
+          
+          const closeButton = document.querySelector('.mobile-navigation__close-button');
+          if (closeButton) {
+            closeButton.addEventListener('click', function() {
+              menu.style.display = 'none';
+              backdrop.style.display = 'none';
+            });
+          }
+          
+          backdrop.addEventListener('click', function() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+          });
+        }
+        
+        // Scroll to top button
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (scrollToTopButton) {
+          window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+              scrollToTopButton.style.display = 'flex';
+              scrollToTopButton.classList.add('visible');
+            } else {
+              scrollToTopButton.classList.remove('visible');
+              setTimeout(function() {
+                if (!scrollToTopButton.classList.contains('visible')) {
+                  scrollToTopButton.style.display = 'none';
+                }
+              }, 300);
+            }
+          });
+          
+          scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          });
+        }
+      });
+
+      // Province section toggle
+      document.addEventListener('DOMContentLoaded', function() {
+        const provinceHeaders = document.querySelectorAll('.province-header');
+        
+        provinceHeaders.forEach(header => {
+          header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('active');
+          });
+        });
+      });
+
+      // Section header toggle with animation
+      document.addEventListener('DOMContentLoaded', function() {
+        const sectionHeaders = document.querySelectorAll('.section-header');
+        
+        sectionHeaders.forEach(header => {
+          header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            this.classList.toggle('collapsed');
+            content.classList.toggle('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

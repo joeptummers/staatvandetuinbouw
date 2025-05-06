@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <base href="/staatvandetuinbouw/">
+    <meta name="description" content="Arbeid in de Nederlandse tuinbouw">
+    <meta name="og:description" content="Arbeid in de Nederlandse tuinbouw">
+    <meta name="og:image" content="../images/og-image.png">
+    <meta property="og:title" content="Arbeid">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/arbeid/">
+    <title>Arbeid - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Indicator lists */
+      .indicator-section {
+        margin-bottom: 40px;
+      }
+      
+      .indicator-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .indicator-list li {
+        margin-bottom: 8px;
+        position: relative;
+      }
+      
+      .indicator-list li:before {
+        content: "•";
+        color: var(--secondary-color);
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
+      
+      /* Sector section */
+      .sector-section {
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+      }
+      
+      .sector-section h3 {
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+      
+      /* Scroll to top button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+      
+      .scroll-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      /* Utility classes */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation {
+          display: block;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      /* Province sections */
+      .province-section {
+        margin-bottom: 40px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .province-header {
+        background-color: var(--header-background);
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .province-header h3 {
+        margin: 0;
+      }
+      
+      .province-content {
+        padding: 20px;
+        display: none;
+      }
+      
+      .province-content.active {
+        display: block;
+      }
+      
+      /* Section headers */
+      .section-header {
+        background-color: var(--header-background);
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .section-header:hover {
+        background-color: #e8e8e8;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+      }
+
+      .section-header::after {
+        content: "▼";
+        font-size: 0.8em;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+      }
+
+      .section-header.collapsed::after {
+        transform: rotate(-90deg);
+      }
+
+      .section-content {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      .section-content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item">Arbeid</li>
+          </ul>
+          
+          <h1 id="main-content">Arbeid in de tuinbouw</h1>
+          <p>Deze pagina geeft een overzicht van de beschikbare gegevens over arbeid in de verschillende tuinbouwsectoren in Nederland. Per regio worden de indicatoren getoond die informatie geven over de arbeidsinzet en productiviteit.</p>
+          
+          <!-- Nederland totaal -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Nederland totaal</h3>
+            </div>
+            <div class="province-content active">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Inzicht per provincie -->
+          <div class="section-header">
+            <h2>Inzicht per provincie</h2>
+          </div>
+          <div class="section-content">
+            <!-- Noord-Brabant -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Noord-Brabant</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(NB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Limburg -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Limburg</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(LI)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Noord-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Noord-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(NH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zuid-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zuid-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Utrecht -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Utrecht</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(UT)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Gelderland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Gelderland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GE)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Flevoland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Flevoland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(FL)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Overijssel -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Overijssel</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(OV)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Drenthe -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Drenthe</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(DR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Groningen -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Groningen</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Friesland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Friesland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(FR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inzicht per Greenport -->
+          <div class="section-header">
+            <h2>Inzicht per Greenport</h2>
+          </div>
+          <div class="section-content">
+            <!-- Greenport West-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport West-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Oost-Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Oost-Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GON)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="../js/header.js"></script>
+    <script src="../js/footer.js"></script>
+    <script>
+      // Toggle province sections
+      document.querySelectorAll('.province-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          content.classList.toggle('active');
+        });
+      });
+
+      // Toggle main sections
+      document.querySelectorAll('.section-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          header.classList.toggle('collapsed');
+          content.classList.toggle('active');
+        });
+      });
+
+      // Scroll to top button
+      const scrollToTopButton = document.createElement('button');
+      scrollToTopButton.className = 'scroll-to-top';
+      scrollToTopButton.innerHTML = '↑';
+      scrollToTopButton.setAttribute('aria-label', 'Terug naar boven');
+      document.body.appendChild(scrollToTopButton);
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+          scrollToTopButton.classList.add('visible');
+        } else {
+          scrollToTopButton.classList.remove('visible');
+        }
+      });
+
+      scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+  </body>
+</html>
