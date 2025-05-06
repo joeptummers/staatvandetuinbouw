@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <base href="/staatvandetuinbouw/">
+    <meta name="description" content="Biologische tuinbouw in Nederland">
+    <meta name="og:description" content="Biologische tuinbouw in Nederland">
+    <meta name="og:image" content="../images/og-image.png">
+    <meta property="og:title" content="Biologische tuinbouw">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/biologischetuinbouw/">
+    <title>Biologische tuinbouw - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .site-header__logos {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        text-decoration: none;
+      }
+      
+      .site-header__logo img {
+        height: 60px;
+        width: auto;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 0;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+      }
+      
+      .desktop-navigation__list-item {
+        margin: 0;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 5px 0;
+        position: relative;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+      }
+      
+      .link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--link-hover-color);
+        transition: width 0.3s ease;
+      }
+      
+      .link:hover::after,
+      .link:focus::after {
+        width: 100%;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      .mobile-navigation__button {
+        display: none;
+        background: none;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+      
+      .mobile-navigation__button-icon {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background-color: var(--primary-color);
+        position: relative;
+      }
+      
+      .mobile-navigation__button-icon::before,
+      .mobile-navigation__button-icon::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-color);
+        transition: transform 0.3s ease;
+      }
+      
+      .mobile-navigation__button-icon::before {
+        transform: translateY(-8px);
+      }
+      
+      .mobile-navigation__button-icon::after {
+        transform: translateY(8px);
+      }
+      
+      .mobile-navigation__menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 80%;
+        max-width: 300px;
+        background-color: white;
+        padding: 20px;
+        z-index: 1000;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mobile-navigation__backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+      
+      .mobile-navigation__close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: var(--text-color);
+      }
+      
+      .mobile-navigation__list {
+        list-style: none;
+        padding: 0;
+        margin: 40px 0 0 0;
+      }
+      
+      .mobile-navigation__list-item {
+        margin-bottom: 15px;
+      }
+      
+      @media (max-width: 768px) {
+        .desktop-navigation {
+          display: none;
+        }
+        
+        .mobile-navigation__button {
+          display: block;
+        }
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Indicator lists */
+      .indicator-section {
+        margin-bottom: 40px;
+      }
+      
+      .indicator-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .indicator-list li {
+        margin-bottom: 8px;
+        position: relative;
+      }
+      
+      .indicator-list li:before {
+        content: "•";
+        color: var(--secondary-color);
+        font-weight: bold;
+        position: absolute;
+        left: -15px;
+      }
+      
+      /* Province sections */
+      .province-section {
+        margin-bottom: 40px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .province-header {
+        background-color: var(--header-background);
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .province-header h3 {
+        margin: 0;
+      }
+      
+      .province-content {
+        padding: 20px;
+        display: none;
+      }
+      
+      .province-content.active {
+        display: block;
+      }
+      
+      /* Section headers */
+      .section-header {
+        background-color: var(--header-background);
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .section-header:hover {
+        background-color: #e8e8e8;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: var(--primary-color);
+      }
+
+      .section-header::after {
+        content: "▼";
+        font-size: 0.8em;
+        color: var(--primary-color);
+        transition: transform 0.3s ease;
+      }
+
+      .section-header.collapsed::after {
+        transform: rotate(-90deg);
+      }
+
+      .section-content {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      .section-content.active {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <div class="container">
+          <div class="site-header__logo-wrapper">
+            <div class="site-header__logos">
+              <a href="index.html" class="site-header__logo">
+                <img src="images/wur-logo.png" alt="Wageningen University & Research" height="60">
+              </a>
+              <a href="index.html" class="site-header__logo">
+                <img src="images/logo.png" alt="Staat van de Tuinbouw" height="60">
+              </a>
+            </div>
+            <nav class="desktop-navigation" aria-label="Hoofdnavigatie">
+              <ul class="desktop-navigation__list">
+                <li class="desktop-navigation__list-item">
+                  <a href="index.html" class="link">Home</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="sector.html" class="link">Sector</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="onderwerpen.html" class="link">Onderwerpen</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="regio.html" class="link">Regio</a>
+                </li>
+              </ul>
+            </nav>
+            <button id="menubutton" class="mobile-navigation__button" aria-label="Menu openen">
+              <span class="mobile-navigation__button-icon"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="mobile-navigation__backdrop"></div>
+      <nav class="mobile-navigation__menu" aria-label="Mobiele navigatie">
+        <button class="mobile-navigation__close-button" aria-label="Menu sluiten">×</button>
+        <ul class="mobile-navigation__list">
+          <li class="mobile-navigation__list-item">
+            <a href="index.html" class="link">Home</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="sector.html" class="link">Sector</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="onderwerpen.html" class="link">Onderwerpen</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="regio.html" class="link">Regio</a>
+          </li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item">Biologische tuinbouw</li>
+          </ul>
+          
+          <h1 id="main-content">Biologische tuinbouw in Nederland</h1>
+          <p>Deze pagina geeft een overzicht van de biologische tuinbouw in Nederland. De indicatoren tonen informatie over het aantal biologische bedrijven, het areaal en de belangrijkste gewassen die biologisch worden geteeld.</p>
+          
+          <!-- Nederland totaal -->
+          <div class="province-section">
+            <div class="province-header">
+              <h3>Nederland totaal</h3>
+            </div>
+            <div class="province-content active">
+              <ul class="indicator-list">
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Inzicht per provincie -->
+          <div class="section-header">
+            <h2>Inzicht per provincie</h2>
+          </div>
+          <div class="section-content">
+            <!-- Noord-Brabant -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Noord-Brabant</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(NB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Limburg -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Limburg</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(LI)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Noord-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Noord-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(NH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zuid-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zuid-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Utrecht -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Utrecht</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(UT)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Gelderland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Gelderland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GE)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Flevoland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Flevoland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(FL)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Overijssel -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Overijssel</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(OV)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Drenthe -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Drenthe</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(DR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Groningen -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Groningen</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Friesland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Friesland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(FR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zeeland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zeeland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inzicht per Greenport -->
+          <div class="section-header">
+            <h2>Inzicht per Greenport</h2>
+          </div>
+          <div class="section-content">
+            <!-- Greenport West-Holland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport West-Holland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-west-holland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GWH)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Oost-Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Oost-Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-oost-nederland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GON)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Aalsmeer -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Aalsmeer</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-aalsmeer/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-aalsmeer/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-aalsmeer/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-aalsmeer/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-aalsmeer/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Duin- en Bollenstreek -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Duin- en Bollenstreek</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-duin-en-bollenstreek/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-duin-en-bollenstreek/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-duin-en-bollenstreek/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-duin-en-bollenstreek/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-duin-en-bollenstreek/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord-Holland-Noord -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord-Holland-Noord</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-holland-noord/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-holland-noord/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-holland-noord/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-holland-noord/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-holland-noord/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Regio Boskoop -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Regio Boskoop</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-regio-boskoop/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-regio-boskoop/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-regio-boskoop/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-regio-boskoop/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-regio-boskoop/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Venlo -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Venlo</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-venlo/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-venlo/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-venlo/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-venlo/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-venlo/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-nederland/aantal-bedrijven-biologisch" class="indicator-link">Aantal bedrijven met biologische teelt <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-nederland/aandeel-bedrijven-biologisch" class="indicator-link">Aandeel bedrijven met biologische teelt <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-nederland/areaal-biologisch" class="indicator-link">Areaal biologisch teelt <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-nederland/aandeel-areaal-biologisch" class="indicator-link">Aandeel areaal biologische teelt <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/greenport-noord-nederland/areaal-belangrijkste-gewassen-biologisch" class="indicator-link">Areaal belangrijkste gewassen die biologisch worden geteeld <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="grid">
+            <div style="grid-column: span 1; grid-column-start: 2;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Over deze website</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/disclaimer/" aria-label="Disclaimer" class="link link-list__link">
+                      <span class="link__content"><span class="text">Disclaimer</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div style="grid-column: span 1; grid-column-start: 3;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Informatie</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/meer-informatie/" aria-label="Meer informatie" class="link link-list__link">
+                      <span class="link__content"><span class="text">Meer informatie</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div style="grid-column: span 1; grid-column-start: 4;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Help</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/veelgestelde-vragen/" aria-label="Veelgestelde vragen" class="link link-list__link">
+                      <span class="link__content"><span class="text">Veelgestelde vragen</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile navigation toggle
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        const closeButton = document.querySelector('.mobile-navigation__close-button');
+        
+        if (menuButton && menu && backdrop && closeButton) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          });
+          
+          function closeMenu() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+          
+          closeButton.addEventListener('click', closeMenu);
+          backdrop.addEventListener('click', closeMenu);
+        }
+
+        // Collapsible sections
+        const provinceHeaders = document.querySelectorAll('.province-header');
+        
+        provinceHeaders.forEach(header => {
+          header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const isActive = content.classList.contains('active');
+            
+            // Close all other sections
+            document.querySelectorAll('.province-content').forEach(section => {
+              section.classList.remove('active');
+            });
+            
+            // Toggle current section
+            if (!isActive) {
+              content.classList.add('active');
+            }
+          });
+        });
+
+        // Toggle main sections
+        document.querySelectorAll('.section-header').forEach(header => {
+          header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            header.classList.toggle('collapsed');
+            content.classList.toggle('active');
+          });
+        });
+
+        // Open first section by default
+        const firstContent = document.querySelector('.province-content');
+        if (firstContent) {
+          firstContent.classList.add('active');
+        }
+      });
+    </script>
+  </body>
+</html>

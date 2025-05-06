@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
     <base href="/staatvandetuinbouw/">
-    <meta name="description" content="Arbeid in de Nederlandse tuinbouw">
-    <meta name="og:description" content="Arbeid in de Nederlandse tuinbouw">
+    <meta name="description" content="Economische betekenis van het tuinbouwcluster in Nederland">
+    <meta name="og:description" content="Economische betekenis van het tuinbouwcluster in Nederland">
     <meta name="og:image" content="../images/og-image.png">
-    <meta property="og:title" content="Arbeid">
-    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/arbeid/">
-    <title>Arbeid - Staat van de Tuinbouw</title>
+    <meta property="og:title" content="Economische betekenis">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/betekenistuinbouwcluster/">
+    <title>Economische betekenis - Staat van de Tuinbouw</title>
     <link href="../images/favicon.png" rel="icon" type="image/png">
     <style>
       :root {
@@ -65,21 +65,30 @@
       
       .site-header__logo-wrapper {
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .site-header__logos {
+        display: flex;
         align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
       }
       
       .site-header__logo {
         display: inline-block;
-        font-size: 24px;
-        font-weight: bold;
-        color: var(--primary-color);
         text-decoration: none;
-        margin-right: 20px;
+      }
+      
+      .site-header__logo img {
+        height: 60px;
+        width: auto;
       }
       
       /* Navigation */
       .desktop-navigation {
-        margin-top: 20px;
+        margin-top: 0;
       }
       
       .desktop-navigation__list {
@@ -87,22 +96,41 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        gap: 20px;
       }
       
       .desktop-navigation__list-item {
-        margin-right: 20px;
+        margin: 0;
       }
       
       .link {
         color: var(--link-color);
         text-decoration: none;
         font-weight: 500;
+        font-size: 1.1rem;
+        padding: 5px 0;
+        position: relative;
       }
       
       .link:hover, 
       .link:focus {
         color: var(--link-hover-color);
-        text-decoration: underline;
+      }
+      
+      .link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--link-hover-color);
+        transition: width 0.3s ease;
+      }
+      
+      .link:hover::after,
+      .link:focus::after {
+        width: 100%;
       }
       
       .link--current {
@@ -379,18 +407,259 @@
   </head>
   <body>
     <div class="site">
-      <div id="header-placeholder"></div>
+      <style>
+        :root {
+          --primary-color: #008A00;
+          --secondary-color: #faaf00;
+          --background-color: #ffffff;
+          --text-color: #333333;
+          --link-color: #008A00;
+          --link-hover-color: #006600;
+          --border-color: #e0e0e0;
+          --header-background: #f5f5f5;
+        }
+
+        .site-header {
+          background-color: var(--header-background);
+          padding: 15px 0;
+          border-bottom: 1px solid var(--border-color);
+        }
+
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .site-header__logo-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .site-header__logos {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 20px;
+        }
+
+        .site-header__logo {
+          display: inline-block;
+          text-decoration: none;
+        }
+
+        .site-header__logo img {
+          height: 60px;
+          width: auto;
+        }
+
+        .desktop-navigation {
+          margin-top: 0;
+        }
+
+        .desktop-navigation__list {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: 20px;
+        }
+
+        .desktop-navigation__list-item {
+          margin: 0;
+        }
+
+        .link {
+          color: var(--link-color);
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.1rem;
+          padding: 5px 0;
+          position: relative;
+        }
+
+        .link:hover, 
+        .link:focus {
+          color: var(--link-hover-color);
+        }
+
+        .link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: var(--link-hover-color);
+          transition: width 0.3s ease;
+        }
+
+        .link:hover::after,
+        .link:focus::after {
+          width: 100%;
+        }
+
+        .mobile-navigation__button {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+        }
+
+        .mobile-navigation__button-icon {
+          display: block;
+          width: 24px;
+          height: 2px;
+          background-color: var(--primary-color);
+          position: relative;
+        }
+
+        .mobile-navigation__button-icon::before,
+        .mobile-navigation__button-icon::after {
+          content: '';
+          position: absolute;
+          width: 24px;
+          height: 2px;
+          background-color: var(--primary-color);
+        }
+
+        .mobile-navigation__button-icon::before {
+          top: -6px;
+        }
+
+        .mobile-navigation__button-icon::after {
+          bottom: -6px;
+        }
+
+        .mobile-navigation__backdrop {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 100;
+        }
+
+        .mobile-navigation__menu {
+          display: none;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 80%;
+          max-width: 300px;
+          height: 100%;
+          background-color: white;
+          padding: 20px;
+          z-index: 101;
+          box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-navigation__close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 24px;
+          cursor: pointer;
+          color: var(--text-color);
+        }
+
+        .mobile-navigation__list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .mobile-navigation__list-item {
+          margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+          .desktop-navigation {
+            display: none;
+          }
+
+          .mobile-navigation__button {
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
+
+          .site-header__logos {
+            margin-bottom: 40px;
+          }
+        }
+      </style>
+
+      <header class="site-header">
+        <div class="container">
+          <div class="site-header__logo-wrapper">
+            <div class="site-header__logos">
+              <a href="index.html" class="site-header__logo">
+                <img src="images/wur-logo.png" alt="Wageningen University & Research" height="60">
+              </a>
+              <a href="index.html" class="site-header__logo">
+                <img src="images/logo.png" alt="Staat van de Tuinbouw" height="60">
+              </a>
+            </div>
+            <nav class="desktop-navigation" aria-label="Hoofdnavigatie">
+              <ul class="desktop-navigation__list">
+                <li class="desktop-navigation__list-item">
+                  <a href="index.html" class="link">Home</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="sector.html" class="link">Sector</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="onderwerpen.html" class="link">Onderwerpen</a>
+                </li>
+                <li class="desktop-navigation__list-item">
+                  <a href="regio.html" class="link">Regio</a>
+                </li>
+              </ul>
+            </nav>
+            <button id="menubutton" class="mobile-navigation__button" aria-label="Menu openen">
+              <span class="mobile-navigation__button-icon"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="mobile-navigation__backdrop"></div>
+      <nav class="mobile-navigation__menu" aria-label="Mobiele navigatie">
+        <button class="mobile-navigation__close-button" aria-label="Menu sluiten">×</button>
+        <ul class="mobile-navigation__list">
+          <li class="mobile-navigation__list-item">
+            <a href="index.html" class="link">Home</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="sector.html" class="link">Sector</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="onderwerpen.html" class="link">Onderwerpen</a>
+          </li>
+          <li class="mobile-navigation__list-item">
+            <a href="regio.html" class="link">Regio</a>
+          </li>
+        </ul>
+      </nav>
 
       <main>
         <section class="container">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
             <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
-            <li class="breadcrumb-item">Arbeid</li>
+            <li class="breadcrumb-item">Economische betekenis</li>
           </ul>
           
-          <h1 id="main-content">Arbeid in de tuinbouw</h1>
-          <p>Deze pagina geeft een overzicht van de beschikbare gegevens over arbeid in de verschillende tuinbouwsectoren in Nederland. Per regio worden de indicatoren getoond die informatie geven over de arbeidsinzet en productiviteit.</p>
+          <h1 id="main-content">Economische betekenis van het tuinbouwcluster</h1>
+          <p>Deze pagina geeft een overzicht van de economische betekenis van het tuinbouwcluster in Nederland. De indicatoren tonen informatie over de toegevoegde waarde en werkgelegenheid in de verschillende schakels van de keten.</p>
           
           <!-- Nederland totaal -->
           <div class="province-section">
@@ -400,13 +669,22 @@
             <div class="province-content active">
               <ul class="indicator-list">
                 <li class="indicator-item">
-                  <a href="/dashboard/nederland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten</a>
+                  <a href="/dashboard/nederland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking)</a>
                 </li>
                 <li class="indicator-item">
-                  <a href="/dashboard/nederland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid</a>
+                  <a href="/dashboard/nederland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen)</a>
                 </li>
                 <li class="indicator-item">
-                  <a href="/dashboard/nederland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid</a>
+                  <a href="/dashboard/nederland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking)</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking)</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen)</a>
+                </li>
+                <li class="indicator-item">
+                  <a href="/dashboard/nederland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking)</a>
                 </li>
               </ul>
             </div>
@@ -425,13 +703,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-brabant/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(NB)</span></a>
+                    <a href="/dashboard/noord-brabant/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NB)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-brabant/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(NB)</span></a>
+                    <a href="/dashboard/noord-brabant/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(NB)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-brabant/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(NB)</span></a>
+                    <a href="/dashboard/noord-brabant/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(NB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-brabant/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NB)</span></a>
                   </li>
                 </ul>
               </div>
@@ -445,13 +732,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/limburg/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(LI)</span></a>
+                    <a href="/dashboard/limburg/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(LI)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/limburg/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(LI)</span></a>
+                    <a href="/dashboard/limburg/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(LI)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/limburg/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(LI)</span></a>
+                    <a href="/dashboard/limburg/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(LI)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/limburg/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(LI)</span></a>
                   </li>
                 </ul>
               </div>
@@ -465,13 +761,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(NH)</span></a>
+                    <a href="/dashboard/noord-holland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(NH)</span></a>
+                    <a href="/dashboard/noord-holland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(NH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/noord-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(NH)</span></a>
+                    <a href="/dashboard/noord-holland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(NH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/noord-holland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(NH)</span></a>
                   </li>
                 </ul>
               </div>
@@ -485,13 +790,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/zuid-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(ZH)</span></a>
+                    <a href="/dashboard/zuid-holland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/zuid-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(ZH)</span></a>
+                    <a href="/dashboard/zuid-holland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(ZH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/zuid-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(ZH)</span></a>
+                    <a href="/dashboard/zuid-holland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(ZH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zuid-holland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZH)</span></a>
                   </li>
                 </ul>
               </div>
@@ -505,13 +819,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/utrecht/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(UT)</span></a>
+                    <a href="/dashboard/utrecht/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(UT)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/utrecht/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(UT)</span></a>
+                    <a href="/dashboard/utrecht/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(UT)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/utrecht/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(UT)</span></a>
+                    <a href="/dashboard/utrecht/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(UT)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/utrecht/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(UT)</span></a>
                   </li>
                 </ul>
               </div>
@@ -525,13 +848,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/gelderland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GE)</span></a>
+                    <a href="/dashboard/gelderland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GE)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/gelderland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GE)</span></a>
+                    <a href="/dashboard/gelderland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GE)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/gelderland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GE)</span></a>
+                    <a href="/dashboard/gelderland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gelderland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GE)</span></a>
                   </li>
                 </ul>
               </div>
@@ -545,13 +877,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/flevoland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(FL)</span></a>
+                    <a href="/dashboard/flevoland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FL)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/flevoland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(FL)</span></a>
+                    <a href="/dashboard/flevoland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(FL)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/flevoland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(FL)</span></a>
+                    <a href="/dashboard/flevoland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(FL)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/flevoland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FL)</span></a>
                   </li>
                 </ul>
               </div>
@@ -565,13 +906,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/overijssel/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(OV)</span></a>
+                    <a href="/dashboard/overijssel/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(OV)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/overijssel/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(OV)</span></a>
+                    <a href="/dashboard/overijssel/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(OV)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/overijssel/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(OV)</span></a>
+                    <a href="/dashboard/overijssel/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(OV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/overijssel/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(OV)</span></a>
                   </li>
                 </ul>
               </div>
@@ -585,13 +935,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/drenthe/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(DR)</span></a>
+                    <a href="/dashboard/drenthe/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(DR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/drenthe/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(DR)</span></a>
+                    <a href="/dashboard/drenthe/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(DR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/drenthe/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(DR)</span></a>
+                    <a href="/dashboard/drenthe/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(DR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/drenthe/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(DR)</span></a>
                   </li>
                 </ul>
               </div>
@@ -605,13 +964,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/groningen/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GR)</span></a>
+                    <a href="/dashboard/groningen/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/groningen/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GR)</span></a>
+                    <a href="/dashboard/groningen/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/groningen/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GR)</span></a>
+                    <a href="/dashboard/groningen/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/groningen/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GR)</span></a>
                   </li>
                 </ul>
               </div>
@@ -625,13 +993,51 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/friesland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(FR)</span></a>
+                    <a href="/dashboard/friesland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/friesland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(FR)</span></a>
+                    <a href="/dashboard/friesland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(FR)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/friesland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(FR)</span></a>
+                    <a href="/dashboard/friesland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(FR)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/friesland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(FR)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Zeeland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Zeeland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(ZE)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/zeeland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(ZE)</span></a>
                   </li>
                 </ul>
               </div>
@@ -643,6 +1049,180 @@
             <h2>Inzicht per Greenport</h2>
           </div>
           <div class="section-content">
+            <!-- Greenport Aalsmeer -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Aalsmeer</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-aalsmeer/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPA)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Duin- en Bollenstreek -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Duin- en Bollenstreek</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-duin-bollenstreek/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPDB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord-Holland-Noord -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord-Holland-Noord</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-holland-noord/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNHN)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Regio Boskoop -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Regio Boskoop</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-boskoop/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPB)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Venlo -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Venlo</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-venlo/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPV)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Greenport Noord Nederland -->
+            <div class="province-section">
+              <div class="province-header">
+                <h3>Greenport Noord Nederland</h3>
+              </div>
+              <div class="province-content">
+                <ul class="indicator-list">
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-noord-nederland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPNN)</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
             <!-- Greenport West-Holland -->
             <div class="province-section">
               <div class="province-header">
@@ -651,13 +1231,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-west-holland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GWH)</span></a>
+                    <a href="/dashboard/gp-west-holland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPWH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-west-holland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GWH)</span></a>
+                    <a href="/dashboard/gp-west-holland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPWH)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-west-holland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GWH)</span></a>
+                    <a href="/dashboard/gp-west-holland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPWH)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-west-holland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPWH)</span></a>
                   </li>
                 </ul>
               </div>
@@ -671,13 +1260,22 @@
               <div class="province-content">
                 <ul class="indicator-list">
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-oost-nederland/arbeidsinzet" class="indicator-link">Arbeidsinzet in arbeidsjaareenheden, naar betaalde en gezinsarbeidskrachten <span class="province-abbr">(GON)</span></a>
+                    <a href="/dashboard/gp-oost-nederland/toegevoegde-waarde-complex" class="indicator-link">Toegevoegde waarde van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPON)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-oost-nederland/areaal-glas-arbeid" class="indicator-link">Areaal onder glas per arbeidsjaareenheid <span class="province-abbr">(GON)</span></a>
+                    <a href="/dashboard/gp-oost-nederland/herkomst-toegevoegde-waarde" class="indicator-link">Herkomst van de toegevoegde waarde (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPON)</span></a>
                   </li>
                   <li class="indicator-item">
-                    <a href="/dashboard/greenport-oost-nederland/areaal-cultuur-arbeid" class="indicator-link">Areaal cultuurgrond per arbeidsjaareenheid <span class="province-abbr">(GON)</span></a>
+                    <a href="/dashboard/gp-oost-nederland/toegevoegde-waarde-ketenschakel" class="indicator-link">Toegevoegde waarde naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/werkgelegenheid-complex" class="indicator-link">Werkgelegenheid van complex (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/herkomst-werkgelegenheid" class="indicator-link">Herkomst van de werkgelegenheid (binnenlands en buitenlandse grondstoffen) <span class="province-abbr">(GPON)</span></a>
+                  </li>
+                  <li class="indicator-item">
+                    <a href="/dashboard/gp-oost-nederland/werkgelegenheid-ketenschakel" class="indicator-link">Werkgelegenheid naar ketenschakel (toelevering, distributie, primair, verwerking) <span class="province-abbr">(GPON)</span></a>
                   </li>
                 </ul>
               </div>
@@ -686,11 +1284,50 @@
         </section>
       </main>
 
-      <div id="footer-placeholder"></div>
+      <footer class="site-footer">
+        <div class="container">
+          <div class="grid">
+            <div style="grid-column: span 1; grid-column-start: 2;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Over deze website</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/disclaimer/" aria-label="Disclaimer" class="link link-list__link">
+                      <span class="link__content"><span class="text">Disclaimer</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div style="grid-column: span 1; grid-column-start: 3;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Informatie</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/meer-informatie/" aria-label="Meer informatie" class="link link-list__link">
+                      <span class="link__content"><span class="text">Meer informatie</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div style="grid-column: span 1; grid-column-start: 4;">
+              <nav class="link-list">
+                <h2 class="link-list__title">Help</h2>
+                <ul class="link-list__list">
+                  <li class="link-list__item">
+                    <a href="/veelgestelde-vragen/" aria-label="Veelgestelde vragen" class="link link-list__link">
+                      <span class="link__content"><span class="text">Veelgestelde vragen</span></span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
 
-    <script src="../js/header.js"></script>
-    <script src="../js/footer.js"></script>
     <script>
       // Toggle province sections
       document.querySelectorAll('.province-header').forEach(header => {
@@ -729,6 +1366,31 @@
           top: 0,
           behavior: 'smooth'
         });
+      });
+
+      // Mobile navigation
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menubutton');
+        const menu = document.querySelector('.mobile-navigation__menu');
+        const backdrop = document.querySelector('.mobile-navigation__backdrop');
+        const closeButton = document.querySelector('.mobile-navigation__close-button');
+        
+        if (menuButton && menu && backdrop && closeButton) {
+          menuButton.addEventListener('click', function() {
+            menu.style.display = 'block';
+            backdrop.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+          });
+          
+          function closeMenu() {
+            menu.style.display = 'none';
+            backdrop.style.display = 'none';
+            document.body.style.overflow = '';
+          }
+          
+          closeButton.addEventListener('click', closeMenu);
+          backdrop.addEventListener('click', closeMenu);
+        }
       });
     </script>
   </body>
