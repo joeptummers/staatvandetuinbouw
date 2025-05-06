@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <base href="/staatvandetuinbouw/">
+    <meta name="description" content="Structuurgegevens van de Nederlandse tuinbouw">
+    <meta name="og:description" content="Structuurgegevens van de Nederlandse tuinbouw">
+    <meta name="og:image" content="../images/og-image.png">
+    <meta property="og:title" content="Structuurgegevens">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/structuurgegevens/">
+    <title>Oppervlakte glastuinbouw - Staat van de Tuinbouw</title>
+    <link href="../images/favicon.png" rel="icon" type="image/png">
+    <style>
+      :root {
+        --primary-color: #008A00;
+        --secondary-color: #faaf00;
+        --background-color: #ffffff;
+        --text-color: #333333;
+        --link-color: #008A00;
+        --link-hover-color: #006600;
+        --border-color: #e0e0e0;
+        --header-background: #f5f5f5;
+        --footer-background: #f5f5f5;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+      
+      /* Skip link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+      }
+      
+      .skip-link:focus {
+        top: 0;
+      }
+      
+      /* Container */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      
+      /* Header */
+      .site-header {
+        background-color: var(--header-background);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .site-header__logo-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      
+      .site-header__logo {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-right: 20px;
+      }
+      
+      /* Navigation */
+      .desktop-navigation {
+        margin-top: 20px;
+      }
+      
+      .desktop-navigation__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .desktop-navigation__list-item {
+        margin-right: 20px;
+      }
+      
+      .link {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .link:hover, 
+      .link:focus {
+        color: var(--link-hover-color);
+        text-decoration: underline;
+      }
+      
+      .link--current {
+        font-weight: bold;
+        border-bottom: 2px solid var(--primary-color);
+      }
+      
+      /* Mobile navigation */
+      .mobile-navigation {
+        display: none;
+      }
+      
+      /* Main content */
+      main {
+        padding: 40px 0;
+      }
+      
+      /* Breadcrumb */
+      .breadcrumb {
+        display: flex;
+        list-style: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+      
+      .breadcrumb-item {
+        margin-right: 10px;
+      }
+      
+      .breadcrumb-item:not(:last-child)::after {
+        content: "›";
+        margin-left: 10px;
+      }
+      
+      /* Text styling */
+      h1, h2, h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      
+      /* Chart container */
+      .chart-container {
+        width: 100%;
+        height: 400px;
+        margin: 20px 0;
+      }
+      
+      /* Tab control */
+      .tab-control {
+        margin: 20px 0;
+      }
+      
+      .tab-control-items {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+      
+      .tab-control-items__tab {
+        margin-right: 20px;
+      }
+      
+      .tab-control-items__tab a {
+        display: block;
+        padding: 10px 0;
+        color: var(--text-color);
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+      }
+      
+      .tab-control-items__tab a:hover,
+      .tab-control-items__tab a.active {
+        color: var(--primary-color);
+        border-bottom-color: var(--primary-color);
+      }
+      
+      .tab-control-items__content {
+        padding: 20px 0;
+      }
+      
+      /* Footer */
+      .site-footer {
+        background-color: var(--footer-background);
+        padding: 40px 0;
+        border-top: 1px solid var(--border-color);
+      }
+      
+      .link-list__title {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+      
+      .link-list__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .link-list__item {
+        margin-bottom: 8px;
+      }
+      
+      .link-list__link {
+        color: var(--link-color);
+        text-decoration: none;
+      }
+      
+      .link-list__link:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/nl/nl-all.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  </head>
+  <body>
+    <div class="site">
+      <div id="header-placeholder"></div>
+
+      <main>
+        <section class="container">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
+            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item"><a href="/structuurgegevens.html" class="link">Structuurgegevens</a></li>
+            <li class="breadcrumb-item">Oppervlakte glastuinbouw</li>
+          </ul>
+          
+          <h1 id="main-content">Oppervlakte glastuinbouw</h1>
+          <p class="page-title__update">Laatste update: 28 september 2024</p>
+
+          <h2>De oppervlakte glastuinbouw in Nederland bedraagt ruim 99.999 hectare in 2023</h2>
+          <p>Deze indicator toont de oppervlakte aan gewassen die zijn ingedeeld binnen de cultuurgrond. Het kengetal is afkomstig uit de CBS-Landbouwtelling en omvat alleen de arealen van de bedrijven die zijn opgenomen in de Landbouwtelling. Gewassen van heel kleine bedrijven of van gewastelers die niet zijn ingeschreven in het handelsregister met een agrarische SBI zijn dus niet meegenomen.</p>
+
+          <div class="tab-control">
+            <ul class="tab-control-items">
+              <li class="tab-control-items__tab"><a href="#totaal" class="active">Totaal</a></li>
+              <li class="tab-control-items__tab"><a href="#gewassen">Gewassen</a></li>
+              <li class="tab-control-items__tab"><a href="#kaart">Kaart</a></li>
+            </ul>
+
+            <div id="totaal" class="tab-control-items__content">
+              <div id="container" class="chart-container"></div>
+              <p>Het totaal areaal glastuinbouw in Nederland bedroeg in 2023 99.999 ha. Dit is lager dan in 2022, maar ongeveer gelijk aan het areaal in 2021. Volgens het CBS is de toename in areaal vanaf 2019 voor een deel het gevolg van een verbeterde respons onder glastuinders in het aanleveren van de gegevens voor de Gecombineerde Opgave. Dit komt door communicatie vanuit RVO en de sector. Daarnaast vindt er een reële groei plaats.</p>
+            </div>
+
+            <div id="gewassen" class="tab-control-items__content">
+              <div id="container-gewassen" class="chart-container"></div>
+              <p>De oppervlakte glastuinbouw in Nederland is verdeeld over verschillende gewasgroepen. De grootste gewasgroep is de groenteteelt, gevolgd door de sierteelt (bloemen en planten). Het areaal boomkwekerij en fruit onder glas is relatief klein.</p>
+            </div>
+
+            <div id="kaart" class="tab-control-items__content">
+              <div id="container-map" class="chart-container"></div>
+              <p>De kaart toont de verdeling van het glastuinbouwareaal over de Nederlandse provincies. Zuid-Holland heeft veruit het grootste areaal, gevolgd door Noord-Brabant en Noord-Holland. In de overige provincies is het areaal glastuinbouw relatief beperkt.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="footer-placeholder"></div>
+    </div>
+
+    <script>
+      // Load header and footer
+      fetch('header.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('header-placeholder').innerHTML = data;
+          });
+
+      fetch('footer.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+          });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.tab-control-items__tab a');
+        const contents = document.querySelectorAll('.tab-control-items__content');
+
+        // Initially hide all content except the first one
+        contents.forEach((content, index) => {
+          if (index !== 0) {
+            content.style.display = 'none';
+          }
+        });
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Hide all content
+            contents.forEach(content => {
+              content.style.display = 'none';
+            });
+            
+            // Show the selected content
+            const targetId = tab.getAttribute('href').substring(1);
+            document.getElementById(targetId).style.display = 'block';
+          });
+        });
+
+        // Total chart
+        Highcharts.chart('container', {
+          chart: {
+            type: 'line'
+          },
+          title: {
+            text: 'DUMMY - Oppervlakte glastuinbouwgewassen in Nederland'
+          },
+          yAxis: {
+            title: {
+              text: 'Hectare'
+            }
+          },
+          xAxis: {
+            categories: [
+              '2000', '2001', '2002', '2003', '2004', '2005', '2006',
+              '2007', '2008', '2009', '2010', '2011', '2012', '2013',
+              '2014', '2015', '2016', '2017', '2018', '2019', '2020',
+              '2021', '2022', '2023'
+            ]
+          },
+          series: [{
+            name: 'Tuinbouw onder glas',
+            data: [
+              99999.94, 99999.17, 99999.52, 99999.51, 99999.65,
+              99999.18, 99999.33, 99999.11, 99999.76, 99999.19, 99999.44,
+              99999.55, 99999.19, 99999.69, 99999.06, 99999.75,
+              99999.15, 99999.23, 99999.30, 99999.92, 99999.58, 99999.30,
+              99999.87, 99999.28
+            ]
+          }]
+        });
+
+        // Gewassen chart
+        Highcharts.chart('container-gewassen', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'DUMMY - Areaal glastuinbouw in Nederland naar gewasgroep'
+          },
+          xAxis: {
+            categories: [
+              '2000', '2001', '2002', '2003', '2004', '2005', '2006',
+              '2007', '2008', '2009', '2010', '2011', '2012', '2013',
+              '2014', '2015', '2016', '2017', '2018', '2019', '2020',
+              '2021', '2022', '2023'
+            ]
+          },
+          yAxis: {
+            title: {
+              text: 'Hectare'
+            }
+          },
+          plotOptions: {
+            column: {
+              stacking: 'normal'
+            }
+          },
+          series: [{
+            name: 'Bloemen en planten onder glas',
+            color: '#2891E1',
+            data: [
+              50000, 48000, 47000, 46000, 45000, 44000, 43000,
+              42000, 41000, 40000, 39000, 38000, 37000, 36000,
+              35000, 34000, 33000, 32000, 31000, 30000, 29000,
+              28000, 27000, 26000
+            ]
+          }, {
+            name: 'Boomkwekerij en vaste planten onder glas',
+            color: '#FAAF00',
+            data: [
+              5000, 5100, 5200, 5300, 5400, 5500, 5600,
+              5700, 5800, 5900, 6000, 6100, 6200, 6300,
+              6400, 6500, 6600, 6700, 6800, 6900, 7000,
+              7100, 7200, 7300
+            ]
+          }, {
+            name: 'Fruit onder glas',
+            color: '#767676',
+            data: [
+              1000, 1100, 1200, 1300, 1400, 1500, 1600,
+              1700, 1800, 1900, 2000, 2100, 2200, 2300,
+              2400, 2500, 2600, 2700, 2800, 2900, 3000,
+              3100, 3200, 3300
+            ]
+          }, {
+            name: 'Groenten onder glas',
+            color: '#d52b1e',
+            data: [
+              44000, 45000, 46000, 47000, 48000, 49000, 50000,
+              51000, 52000, 53000, 54000, 55000, 56000, 57000,
+              58000, 59000, 60000, 61000, 62000, 63000, 64000,
+              65000, 66000, 67000
+            ]
+          }]
+        });
+
+        // Map chart
+        Highcharts.mapChart('container-map', {
+          chart: {
+            map: 'countries/nl/nl-all'
+          },
+          title: {
+            text: 'DUMMY - Glastuinbouwareaal per provincie'
+          },
+          subtitle: {
+            text: 'Totaal areaal in hectare (2023)'
+          },
+          mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+              verticalAlign: 'bottom'
+            }
+          },
+          colorAxis: {
+            min: 0,
+            minColor: '#EEEEFF',
+            maxColor: '#008A00'
+          },
+          series: [{
+            data: [
+              ['nl-zh', 5200],  // Zuid-Holland
+              ['nl-nb', 1500],  // Noord-Brabant
+              ['nl-nh', 1045],  // Noord-Holland
+              ['nl-li', 950],   // Limburg
+              ['nl-ge', 750],   // Gelderland
+              ['nl-fl', 400],   // Flevoland
+              ['nl-ut', 250],   // Utrecht
+              ['nl-ze', 200],   // Zeeland
+              ['nl-ov', 180],   // Overijssel
+              ['nl-dr', 150],   // Drenthe
+              ['nl-gr', 120],   // Groningen
+              ['nl-fr', 100]    // Friesland
+            ],
+            name: 'Glastuinbouwareaal',
+            states: {
+              hover: {
+                color: '#FAAF00'
+              }
+            },
+            dataLabels: {
+              enabled: true,
+              format: '{point.name}: {point.value} ha'
+            },
+            tooltip: {
+              pointFormat: '{point.name}: {point.value} ha glastuinbouw'
+            }
+          }]
+        });
+      });
+    </script>
+  </body>
+</html>
