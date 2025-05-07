@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website">
     <base href="/staatvandetuinbouw/">
-    <meta name="description" content="Structuurgegevens van de Nederlandse tuinbouw">
-    <meta name="og:description" content="Structuurgegevens van de Nederlandse tuinbouw">
+    <meta name="description" content="Oppervlakte glastuinbouw in Noord-Holland">
+    <meta name="og:description" content="Oppervlakte glastuinbouw in Noord-Holland">
     <meta name="og:image" content="../images/og-image.png">
-    <meta property="og:title" content="Structuurgegevens">
-    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/structuurgegevens/">
-    <title>Oppervlakte glastuinbouw - Staat van de Tuinbouw</title>
+    <meta property="og:title" content="Oppervlakte glastuinbouw Noord-Holland">
+    <meta property="og:url" content="https://www.example.org/tuinbouw/onderwerpen/bedrijven-en-gewassen/areaal-glas-nh/">
+    <title>Oppervlakte glastuinbouw Noord-Holland - Staat van de Tuinbouw</title>
     <link href="../images/favicon.png" rel="icon" type="image/png">
     <style>
       :root {
@@ -240,7 +240,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/maps/modules/map.js"></script>
     <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-    <script src="https://code.highcharts.com/mapdata/countries/nl/nl-all.js"></script>
+    <script src="https://code.highcharts.com/mapdata/countries/nl/nl-nh-all.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   </head>
@@ -252,37 +252,44 @@
         <section class="container">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="/" class="link">Home</a></li>
-            <li class="breadcrumb-item"><a href="/onderwerpen.html" class="link">Onderwerpen</a></li>
+            <li class="breadcrumb-item"><a href="/regio.html" class="link">Regio</a></li>
+            <li class="breadcrumb-item"><a href="/regio/nh.html" class="link">Noord-Holland</a></li>
             <li class="breadcrumb-item"><a href="/bedrijvenengewassen.html" class="link">Bedrijven en gewassen</a></li>
-            <li class="breadcrumb-item">Oppervlakte glastuinbouw</li>
+            <li class="breadcrumb-item">Oppervlakte glastuinbouw Noord-Holland</li>
           </ul>
           
-          <h1 id="main-content">Oppervlakte glastuinbouw</h1>
+          <h1 id="main-content">Oppervlakte glastuinbouw in Noord-Holland</h1>
           <p class="page-title__update">Laatste update: 28 september 2024</p>
 
-          <h2>De oppervlakte glastuinbouw in Nederland bedraagt ruim 99.999 hectare in 2023</h2>
-          <p>Deze indicator toont de oppervlakte aan gewassen die zijn ingedeeld binnen de cultuurgrond. Het kengetal is afkomstig uit de CBS-Landbouwtelling en omvat alleen de arealen van de bedrijven die zijn opgenomen in de Landbouwtelling. Gewassen van heel kleine bedrijven of van gewastelers die niet zijn ingeschreven in het handelsregister met een agrarische SBI zijn dus niet meegenomen.</p>
+          <h2>De oppervlakte glastuinbouw in Noord-Holland bedraagt ruim 1.100 hectare in 2023</h2>
+          <p>Deze indicator toont de oppervlakte aan gewassen die zijn ingedeeld binnen de cultuurgrond. Het kengetal is afkomstig uit de CBS-Landbouwtelling en omvat alleen de arealen van de bedrijven die zijn opgenomen in de Landbouwtelling.</p>
 
           <div class="tab-control">
             <ul class="tab-control-items">
               <li class="tab-control-items__tab"><a href="#totaal" class="active">Totaal areaal glastuinbouw</a></li>
               <li class="tab-control-items__tab"><a href="#gewassen">Gewassen</a></li>
               <li class="tab-control-items__tab"><a href="#kaart">Kaart</a></li>
+              <li class="tab-control-items__tab"><a href="#belang">Belang per gewas</a></li>
             </ul>
 
             <div id="totaal" class="tab-control-items__content">
               <div id="container" class="chart-container"></div>
-              <p>Het totaal areaal glastuinbouw in Nederland bedroeg in 2023 99.999 ha. Dit is lager dan in 2022, maar ongeveer gelijk aan het areaal in 2021. Volgens het CBS is de toename in areaal vanaf 2019 voor een deel het gevolg van een verbeterde respons onder glastuinders in het aanleveren van de gegevens voor de Gecombineerde Opgave. Dit komt door communicatie vanuit RVO en de sector. Daarnaast vindt er een reële groei plaats.</p>
+              <p>Het totaal areaal glastuinbouw in Noord-Holland bedroeg in 2023 1.100 ha. Dit is een toename van 50 hectare ten opzichte van 2022.</p>
             </div>
 
             <div id="gewassen" class="tab-control-items__content">
               <div id="container-gewassen" class="chart-container"></div>
-              <p>De oppervlakte glastuinbouw in Nederland is verdeeld over verschillende gewasgroepen. De grootste gewasgroep is de groenteteelt, gevolgd door de sierteelt (bloemen en planten). Het areaal boomkwekerij en fruit onder glas is relatief klein.</p>
+              <p>De oppervlakte glastuinbouw in Noord-Holland is verdeeld over verschillende gewasgroepen. De grootste gewasgroep is de groenteteelt, gevolgd door de sierteelt (bloemen en planten).</p>
             </div>
 
             <div id="kaart" class="tab-control-items__content">
               <div id="container-map" class="chart-container"></div>
-              <p>De kaart toont de verdeling van het glastuinbouwareaal over de Nederlandse provincies. Zuid-Holland heeft veruit het grootste areaal, gevolgd door Noord-Brabant en Noord-Holland. In de overige provincies is het areaal glastuinbouw relatief beperkt.</p>
+              <p>De kaart toont de verdeling van het glastuinbouwareaal over de gemeenten in Noord-Holland. De grootste concentratie is te vinden in de regio West-Friesland.</p>
+            </div>
+
+            <div id="belang" class="tab-control-items__content">
+              <div id="container-belang" class="chart-container"></div>
+              <p>De grafiek toont het aandeel van Noord-Holland in het totale Nederlandse glastuinbouwareaal per gewasgroep. Noord-Holland heeft een relatief groot aandeel in de teelt van bloemen en planten onder glas.</p>
             </div>
           </div>
         </section>
@@ -291,7 +298,7 @@
       <div id="footer-placeholder"></div>
     </div>
 
-<script>
+    <script>
       // Load header and footer
       fetch('header.html')
           .then(response => response.text())
@@ -305,7 +312,7 @@
               document.getElementById('footer-placeholder').innerHTML = data;
           });
 
-  document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
         // Tab switching functionality
         const tabs = document.querySelectorAll('.tab-control-items__tab a');
         const contents = document.querySelectorAll('.tab-control-items__content');
@@ -339,36 +346,35 @@
         });
 
         // Total chart
-    Highcharts.chart('container', {
-      chart: {
-        type: 'line'
-      },
-      title: {
-            text: 'DUMMY - Oppervlakte glastuinbouwgewassen in Nederland'
-      },
-      yAxis: {
-        title: {
-          text: 'Hectare'
-        }
-      },
-      xAxis: {
-        categories: [
-          '2000', '2001', '2002', '2003', '2004', '2005', '2006',
-          '2007', '2008', '2009', '2010', '2011', '2012', '2013',
-          '2014', '2015', '2016', '2017', '2018', '2019', '2020',
-          '2021', '2022', '2023'
-        ]
-      },
-      series: [{
-            name: 'Tuinbouw onder glas',
-            data: [
-              99999.94, 99999.17, 99999.52, 99999.51, 99999.65,
-              99999.18, 99999.33, 99999.11, 99999.76, 99999.19, 99999.44,
-              99999.55, 99999.19, 99999.69, 99999.06, 99999.75,
-              99999.15, 99999.23, 99999.30, 99999.92, 99999.58, 99999.30,
-              99999.87, 99999.28
+        Highcharts.chart('container', {
+          chart: {
+            type: 'line'
+          },
+          title: {
+            text: 'Oppervlakte glastuinbouwgewassen in Noord-Holland'
+          },
+          yAxis: {
+            title: {
+              text: 'Hectare'
+            }
+          },
+          xAxis: {
+            categories: [
+              '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009',
+              '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019',
+              '2020', '2021', '2022', '2023'
             ]
-          }]
+          },
+          series: [{
+            name: 'Tuinbouw onder glas',
+            data: [1050.49, 1037.02, 1010.55, 1036.05, 985.67, 983.82, 980.13, 916.71, 932.28, 968.92,
+                   918.24, 880.76, 919.52, 956.47, 922.11, 900.37, 925.82, 871.52, 878.13, 956.49,
+                   993.36, 1055.73, 1161.49, 1045.33]
+          }],
+          credits: {
+            text: 'CBS-Landbouwtelling; bewerking Wageningen Economic Research.',
+            href: 'https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/landbouwtelling'
+          }
         });
 
         // Gewassen chart
@@ -377,75 +383,73 @@
             type: 'column'
           },
           title: {
-            text: 'DUMMY - Areaal glastuinbouw in Nederland naar gewasgroep'
+            text: 'Areaal glastuinbouw in Noord-Holland'
           },
           xAxis: {
             categories: [
-              '2000', '2001', '2002', '2003', '2004', '2005', '2006',
-              '2007', '2008', '2009', '2010', '2011', '2012', '2013',
-              '2014', '2015', '2016', '2017', '2018', '2019', '2020',
-              '2021', '2022', '2023'
-            ]
+              '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009',
+              '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019',
+              '2020', '2021', '2022', '2023'
+            ],
+            crosshair: true
           },
           yAxis: {
             title: {
               text: 'Hectare'
-            }
+            },
+            min: 0
+          },
+          tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+              '<td style="padding:0"><b>{point.y:.1f} ha</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
           },
           plotOptions: {
             column: {
-              stacking: 'normal'
+              stacking: 'normal',
+              pointPadding: 0.2,
+              borderWidth: 0,
+              dataLabels: {
+                enabled: false
+              }
             }
           },
           series: [{
             name: 'Bloemen en planten onder glas',
             color: '#2891E1',
-            data: [
-              50000, 48000, 47000, 46000, 45000, 44000, 43000,
-              42000, 41000, 40000, 39000, 38000, 37000, 36000,
-              35000, 34000, 33000, 32000, 31000, 30000, 29000,
-              28000, 27000, 26000
-            ]
+            data: [926.7, 923.8, 900.8, 908.9, 860.3, 858.6, 849.2, 788.0, 766.1, 744.1, 668.7, 632.8, 633.5, 624.8, 575.2, 533.5, 527.5, 475.6, 460.9, 490.7, 475.4, 517.2, 499.1, 485.4]
           }, {
             name: 'Boomkwekerij en vaste planten onder glas',
             color: '#FAAF00',
-            data: [
-              5000, 5100, 5200, 5300, 5400, 5500, 5600,
-              5700, 5800, 5900, 6000, 6100, 6200, 6300,
-              6400, 6500, 6600, 6700, 6800, 6900, 7000,
-              7100, 7200, 7300
-            ]
+            data: [14.6, 15.1, 14.2, 18.5, 15.0, 18.5, 15.3, 16.2, 15.6, 16.2, 27.3, 20.9, 22.0, 20.7, 22.8, 18.7, 21.7, 24.3, 25.1, 42.3, 18.7, 34.3, 33.8, 25.3]
           }, {
             name: 'Fruit onder glas',
             color: '#767676',
-            data: [
-              1000, 1100, 1200, 1300, 1400, 1500, 1600,
-              1700, 1800, 1900, 2000, 2100, 2200, 2300,
-              2400, 2500, 2600, 2700, 2800, 2900, 3000,
-              3100, 3200, 3300
-            ]
+            data: [1.3, 0.6, 0.5, 1.5, 0.3, 0.2, 0.3, 1.1, 0.1, 0.1, 0.3, 1.6, 1.0, 1.0, 1.4, 1.0, 1.5, 0.7, 0.9, 1.5, 0.9, 1.5, 2.1, 2.3]
           }, {
             name: 'Groenten onder glas',
             color: '#d52b1e',
-        data: [
-              44000, 45000, 46000, 47000, 48000, 49000, 50000,
-              51000, 52000, 53000, 54000, 55000, 56000, 57000,
-              58000, 59000, 60000, 61000, 62000, 63000, 64000,
-              65000, 66000, 67000
-        ]
-      }]
-    });
+            data: [107.9, 97.4, 95.1, 107.2, 110.1, 106.5, 115.2, 111.4, 150.4, 208.6, 222.0, 225.5, 263.1, 310.0, 322.7, 347.2, 375.1, 371.0, 391.2, 422.0, 498.3, 502.6, 626.6, 532.2]
+          }],
+          credits: {
+            text: 'CBS-Landbouwtelling; bewerking Wageningen Economic Research.',
+            href: 'https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/landbouwtelling'
+          }
+        });
 
         // Map chart
         Highcharts.mapChart('container-map', {
           chart: {
-            map: 'countries/nl/nl-all'
+            map: 'countries/nl/nl-nh-all'
           },
           title: {
-            text: 'DUMMY - Glastuinbouwareaal per provincie'
+            text: 'Glastuinbouwareaal per gemeente in Noord-Holland'
           },
           subtitle: {
-            text: 'Totaal areaal in hectare (2023)'
+            text: 'Totaal areaal in hectare (2021)'
           },
           mapNavigation: {
             enabled: true,
@@ -460,18 +464,36 @@
           },
           series: [{
             data: [
-              ['nl-zh', 5200],  // Zuid-Holland
-              ['nl-nb', 1500],  // Noord-Brabant
-              ['nl-nh', 1045],  // Noord-Holland
-              ['nl-li', 950],   // Limburg
-              ['nl-ge', 750],   // Gelderland
-              ['nl-fl', 400],   // Flevoland
-              ['nl-ut', 250],   // Utrecht
-              ['nl-ze', 200],   // Zeeland
-              ['nl-ov', 180],   // Overijssel
-              ['nl-dr', 150],   // Drenthe
-              ['nl-gr', 120],   // Groningen
-              ['nl-fr', 100]    // Friesland
+              ['nl-3557-gm0358', 70.92],
+              ['nl-3557-gm0361', 1.58],
+              ['nl-3557-gm0362', 39.10],
+              ['nl-3557-gm0363', 1.79],
+              ['nl-3557-gm0373', 0.29],
+              ['nl-3557-gm0375', 0.59],
+              ['nl-3557-gm0383', 0.50],
+              ['nl-3557-gm0388', 13.58],
+              ['nl-3557-gm0392', 1.44],
+              ['nl-3557-gm0394', 100.63],
+              ['nl-3557-gm0396', 16.30],
+              ['nl-3557-gm0397', 0.43],
+              ['nl-3557-gm0399', 0.20],
+              ['nl-3557-gm0405', 2.39],
+              ['nl-3557-gm0406', 1.50],
+              ['nl-3557-gm0420', 188.05],
+              ['nl-3557-gm0432', 11.04],
+              ['nl-3557-gm0439', 4.13],
+              ['nl-3557-gm0441', 13.50],
+              ['nl-3557-gm0448', 0.19],
+              ['nl-3557-gm0451', 126.08],
+              ['nl-3557-gm0450', 0.32],
+              ['nl-3557-gm0453', 0.04],
+              ['nl-3557-gm0479', 14.27],
+              ['nl-3557-gm0498', 23.38],
+              ['nl-3557-gm0532', 2.53],
+              ['nl-3557-gm1598', 26.77],
+              ['nl-3557-gm1696', 1.73],
+              ['nl-3557-gm1911', 288.53],
+              ['nl-3557-gm1980', 93.55]
             ],
             name: 'Glastuinbouwareaal',
             states: {
@@ -481,14 +503,66 @@
             },
             dataLabels: {
               enabled: true,
-              format: '{point.name}: {point.value} ha'
+              format: '{point.name}: {point.value:.1f} ha'
             },
             tooltip: {
-              pointFormat: '{point.name}: {point.value} ha glastuinbouw'
+              pointFormat: '{point.name}: {point.value:.1f} ha glastuinbouw'
             }
-      }]
-    });
-  });
-</script>
+          }]
+        });
+
+        // Belang per gewas chart
+        Highcharts.chart('container-belang', {
+          chart: {
+            type: 'column'
+          },
+          title: {
+            text: 'Aandeel Noord-Holland in totaal Nederland, 2023'
+          },
+          subtitle: {
+            text: 'Oppervlakte glastuinbouwgewassen per gewasgroep'
+          },
+          xAxis: {
+            categories: [
+              'Bloemen en planten onder glas',
+              'Groenten onder glas',
+              'Boomkwekerij en vaste planten onder glas',
+              'Fruit onder glas'
+            ],
+            crosshair: true
+          },
+          yAxis: {
+            title: {
+              text: 'Procent'
+            },
+            min: 0,
+            max: 14
+          },
+          tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+              '<td style="padding:0"><b>{point.y:.1f}%</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+          },
+          plotOptions: {
+            column: {
+              pointPadding: 0.2,
+              borderWidth: 0
+            }
+          },
+          series: [{
+            name: 'Noord-Holland',
+            color: '#2891E1',
+            data: [11.9, 9.8, 5.0, 1.7]
+          }],
+          credits: {
+            text: 'CBS-Landbouwtelling; bewerking Wageningen Economic Research.',
+            href: 'https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/landbouwtelling'
+          }
+        });
+      });
+    </script>
   </body>
 </html>
