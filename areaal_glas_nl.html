@@ -236,6 +236,47 @@
       .link-list__link:hover {
         text-decoration: underline;
       }
+
+      /* Related links section */
+      .related-links {
+        margin-top: 40px;
+        padding: 20px;
+        background-color: var(--header-background);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+      }
+
+      .related-links h2 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .related-links h3 {
+        color: var(--text-color);
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .related-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .related-links li {
+        margin-bottom: 8px;
+      }
+
+      .related-links .link {
+        color: var(--link-color);
+        text-decoration: none;
+      }
+
+      .related-links .link:hover {
+        text-decoration: underline;
+        color: var(--link-hover-color);
+      }
     </style>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/maps/modules/map.js"></script>
@@ -284,6 +325,34 @@
               <div id="container-map" class="chart-container"></div>
               <p>De kaart toont de verdeling van het glastuinbouwareaal over de Nederlandse provincies. Zuid-Holland heeft veruit het grootste areaal, gevolgd door Noord-Brabant en Noord-Holland. In de overige provincies is het areaal glastuinbouw relatief beperkt.</p>
             </div>
+          </div>
+
+          <!-- Zie ook sectie -->
+          <div class="related-links">
+            <h2>Zie ook</h2>
+            
+            <h3>Subsectoren binnen de glastuinbouw</h3>
+            <ul>
+              <li><a href="/dashboard/nederland/areaal-snijbloemen" class="link">Areaal snijbloementeelt in Nederland</a></li>
+              <li><a href="/dashboard/nederland/areaal-potplanten" class="link">Areaal pot- en perkplantenteelt in Nederland</a></li>
+              <li><a href="/dashboard/nederland/areaal-glasgroenten" class="link">Areaal glasgroententeelt in Nederland</a></li>
+            </ul>
+
+            <h3>Provincies</h3>
+            <ul>
+              <li><a href="/dashboard/drenthe/areaal-glas" class="link">Areaal glastuinbouw in Drenthe</a></li>
+              <li><a href="/dashboard/flevoland/areaal-glas" class="link">Areaal glastuinbouw in Flevoland</a></li>
+              <li><a href="/dashboard/friesland/areaal-glas" class="link">Areaal glastuinbouw in Friesland</a></li>
+              <li><a href="/dashboard/gelderland/areaal-glas" class="link">Areaal glastuinbouw in Gelderland</a></li>
+              <li><a href="/dashboard/groningen/areaal-glas" class="link">Areaal glastuinbouw in Groningen</a></li>
+              <li><a href="/dashboard/limburg/areaal-glas" class="link">Areaal glastuinbouw in Limburg</a></li>
+              <li><a href="/dashboard/noord-brabant/areaal-glas" class="link">Areaal glastuinbouw in Noord-Brabant</a></li>
+              <li><a href="areaal_glas_nh.html" class="link">Areaal glastuinbouw in Noord-Holland</a></li>
+              <li><a href="/dashboard/overijssel/areaal-glas" class="link">Areaal glastuinbouw in Overijssel</a></li>
+              <li><a href="/dashboard/utrecht/areaal-glas" class="link">Areaal glastuinbouw in Utrecht</a></li>
+              <li><a href="/dashboard/zeeland/areaal-glas" class="link">Areaal glastuinbouw in Zeeland</a></li>
+              <li><a href="/dashboard/zuid-holland/areaal-glas" class="link">Areaal glastuinbouw in Zuid-Holland</a></li>
+            </ul>
           </div>
         </section>
       </main>
